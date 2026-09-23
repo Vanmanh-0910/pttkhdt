@@ -63,7 +63,6 @@
     var adminAct = roleName === "admin" ? ' class="active"' : '';
 
     return [
-      '<div class="proto-flag">PROTOTYPE HỆ THỐNG — Dữ liệu mô phỏng theo Use Case bài toán OOAD · Không yêu cầu kết nối CSDL thực tế</div>',
       '<header class="site-header">',
       '  <div class="bar">',
       '    <a class="brand" href="index.html">',
