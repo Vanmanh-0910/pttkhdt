@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ODauDay Stay — Đơn của tôi (UC-04)</title>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  <div class="proto-flag">PROTOTYPE — dữ liệu tĩnh, không có backend/CSDL. Dùng để minh hoạ giao diện theo Use Case.</div>
+
+  <header class="site-header">
+    <div class="bar">
+      <a class="brand" href="index.html">ODauDay Stay <span>· cho thuê homestay</span></a>
+      <nav class="nav" aria-label="Điều hướng khách thuê">
+        <a href="index.html">Trang chủ</a>
+        <a href="search-results.html">Tìm kiếm</a>
+        <a href="my-bookings.html">Đơn của tôi</a>
+        <a href="login.html">Đăng nhập</a>
+      </nav>
+      <div class="role-switch"><span>Vai trò:</span>
+        <a href="index.html" class="active">Khách</a>
+        <a href="host-properties.html">Chủ nhà</a>
+        <a href="admin-users.html">Quản trị</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <span class="uc-tag">UC-04 · Quản lý đơn của khách</span>
+    <h1 class="page-title">Đơn đặt phòng của tôi</h1>
+    <p class="page-sub">Chỉ hiển thị đơn thuộc tài khoản đang đăng nhập (Khách thuê Demo).</p>
+
+    <section class="panel">
+      <table>
+        <thead>
+          <tr><th>Mã đơn</th><th>Phòng</th><th>Thời gian</th><th>Tổng tiền</th><th>Trạng thái</th><th></th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>ODD-DEMO-0002</strong></td>
+            <td>Phòng Garden</td>
+            <td>10–12/01/2027</td>
+            <td class="price">1.300.000đ</td>
+            <td><span class="badge badge-pending">PENDING</span></td>
+            <td><a class="btn btn-outline btn-sm" href="my-booking-detail.html">Xem</a></td>
+          </tr>
+          <tr>
+            <td>ODD-DEMO-0001</td>
+            <td>Phòng Garden</td>
+            <td>10–12/01/2027</td>
+            <td class="price">1.300.000đ</td>
+            <td><span class="badge badge-completed">COMPLETED</span></td>
+            <td><a class="btn btn-outline btn-sm" href="review-form.html">Đánh giá</a></td>
+          </tr>
+          <tr>
+            <td>ODD-DEMO-0000</td>
+            <td>Phòng Family</td>
+            <td>05–06/12/2026</td>
+            <td class="price">1.100.000đ</td>
+            <td><span class="badge badge-cancelled">CANCELLED</span></td>
+            <td><a class="btn btn-outline btn-sm" href="my-booking-detail.html">Xem</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <footer class="site-footer">ODauDay Stay · Bài tập lớn OOAD · Prototype giao diện, dữ liệu tĩnh trong trang.</footer>
+  <script src="assets/js/ui.js"></script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ODauDay Stay — Chặn lịch phòng (UC-07 / TC-13)</title>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  <div class="proto-flag">PROTOTYPE — dữ liệu tĩnh, không có backend/CSDL. Dùng để minh hoạ giao diện theo Use Case.</div>
+
+  <header class="site-header">
+    <div class="bar">
+      <a class="brand" href="index.html">ODauDay Stay <span>· khu vực chủ nhà</span></a>
+      <nav class="nav" aria-label="Điều hướng chủ nhà">
+        <a href="host-properties.html">Nhà của tôi</a>
+        <a href="host-rooms.html">Phòng</a>
+        <a href="host-bookings.html">Đơn đặt</a>
+        <a href="host-revenue.html">Doanh thu</a>
+      </nav>
+      <div class="role-switch"><span>Vai trò:</span>
+        <a href="index.html">Khách</a>
+        <a href="host-properties.html" class="active">Chủ nhà</a>
+        <a href="admin-users.html">Quản trị</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <p class="breadcrumb"><a href="host-rooms.html">Phòng</a> › Chặn lịch · Phòng Family</p>
+    <span class="uc-tag">UC-07 · Quản lý phòng và lịch chặn</span>
+    <h1 class="page-title">Chặn lịch phòng (bảo trì)</h1>
+
+    <div class="btn-group" style="margin-bottom:1rem;">
+      <a class="btn btn-outline btn-sm" data-goto-state="default" href="#">Chặn hợp lệ</a>
+      <a class="btn btn-outline btn-sm" data-goto-state="conflict" href="#">Trùng đơn đã xác nhận (TC-13)</a>
+    </div>
+
+    <div class="layout-side">
+      <section class="panel">
+        <div class="alert alert-error" role="alert" data-state="conflict" hidden>
+          <strong>Không thể chặn lịch (TC-13)</strong>
+          Khoảng ngày này trùng với đơn đã CONFIRMED/CHECKED_IN. Hệ thống giữ nguyên dữ liệu cũ, không tạo lịch chặn.
+        </div>
+        <div class="alert alert-ok" role="status" data-state="default" hidden>
+          <strong>Đã tạo lịch chặn</strong>
+          Phòng Family sẽ không nhận đặt trong khoảng đã chọn.
+        </div>
+        <div class="row">
+          <div class="field"><label for="bs">Từ ngày</label><input id="bs" type="date" value="2027-02-10" /></div>
+          <div class="field"><label for="be">Đến ngày</label><input id="be" type="date" value="2027-02-12" /></div>
+        </div>
+        <div class="field"><label for="reason">Lý do</label><input id="reason" value="Bảo trì điều hoà" /></div>
+        <button class="btn btn-primary">Tạo lịch chặn</button>
+      </section>
+
+      <aside class="panel">
+        <h3>Lịch chặn hiện có</h3>
+        <table>
+          <thead><tr><th>Khoảng</th><th>Lý do</th></tr></thead>
+          <tbody>
+            <tr><td>10/02 → 12/02/2027</td><td>Bảo trì điều hoà</td></tr>
+          </tbody>
+        </table>
+        <p class="muted">Điều kiện giao nhau: startA &lt; endB và endA &gt; startB (BR-03).</p>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="site-footer">ODauDay Stay · Bài tập lớn OOAD · Prototype giao diện, dữ liệu tĩnh trong trang.</footer>
+  <script src="assets/js/ui.js"></script>
+</body>
+</html>

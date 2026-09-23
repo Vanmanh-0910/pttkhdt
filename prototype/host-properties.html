@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ODauDay Stay — Quản lý nhà (UC-06)</title>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  <div class="proto-flag">PROTOTYPE — dữ liệu tĩnh, không có backend/CSDL. Dùng để minh hoạ giao diện theo Use Case.</div>
+
+  <header class="site-header">
+    <div class="bar">
+      <a class="brand" href="index.html">ODauDay Stay <span>· khu vực chủ nhà</span></a>
+      <nav class="nav" aria-label="Điều hướng chủ nhà">
+        <a href="host-properties.html">Nhà của tôi</a>
+        <a href="host-rooms.html">Phòng</a>
+        <a href="host-bookings.html">Đơn đặt</a>
+        <a href="host-revenue.html">Doanh thu</a>
+      </nav>
+      <div class="role-switch"><span>Vai trò:</span>
+        <a href="index.html">Khách</a>
+        <a href="host-properties.html" class="active">Chủ nhà</a>
+        <a href="admin-users.html">Quản trị</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <span class="uc-tag">UC-06 · Quản lý nhà</span>
+    <h1 class="page-title">Nhà của tôi</h1>
+    <p class="page-sub">Chủ nhà chỉ quản lý được nhà thuộc sở hữu của mình (host.demo).</p>
+
+    <div class="layout-side">
+      <section class="panel">
+        <div style="display:flex;justify-content:space-between;align-items:center;">
+          <h2 class="mb-0">Danh sách nhà</h2>
+          <a class="btn btn-primary btn-sm" href="#form">+ Thêm nhà</a>
+        </div>
+        <div class="divider"></div>
+        <table>
+          <thead><tr><th>Tên nhà</th><th>Loại</th><th>Địa chỉ</th><th>Trạng thái</th><th></th></tr></thead>
+          <tbody>
+            <tr>
+              <td><strong>ODauDay Stay Hồ Tây</strong></td>
+              <td>Homestay</td>
+              <td>Quận Tây Hồ, Hà Nội</td>
+              <td><span class="badge badge-completed">PUBLISHED</span></td>
+              <td><a class="btn btn-outline btn-sm" href="host-rooms.html">Quản lý phòng</a></td>
+            </tr>
+            <tr>
+              <td>ODauDay Stay Ba Vì</td>
+              <td>Homestay</td>
+              <td>Ba Vì, Hà Nội</td>
+              <td><span class="badge badge-pending">DRAFT</span></td>
+              <td><a class="btn btn-outline btn-sm" href="host-rooms.html">Quản lý phòng</a></td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="muted">Nhà đã phát sinh đơn không bị xoá cứng; chỉ có thể chuyển INACTIVE (BR-09).</p>
+      </section>
+
+      <aside class="panel" id="form">
+        <h3>Thêm / sửa nhà</h3>
+        <div class="field"><label for="pname">Tên nhà</label><input id="pname" value="ODauDay Stay Hồ Tây" /></div>
+        <div class="field"><label for="ptype">Loại nhà</label>
+          <select id="ptype"><option selected>Homestay</option><option>Căn hộ</option></select>
+        </div>
+        <div class="field"><label for="paddr">Địa chỉ</label><input id="paddr" value="Quận Tây Hồ, Hà Nội" /></div>
+        <div class="field"><label for="pdesc">Mô tả</label><textarea id="pdesc">Không gian yên tĩnh, phù hợp nhóm nhỏ.</textarea></div>
+        <div class="field"><label>Ảnh nhà</label>
+          <div class="btn-group">
+            <span class="thumb" style="height:64px;width:80px;border-radius:8px;font-size:.7rem;">Ảnh 1</span>
+            <span class="thumb" style="height:64px;width:80px;border-radius:8px;font-size:.7rem;">Ảnh 2</span>
+            <button class="btn btn-outline btn-sm">+ Thêm ảnh</button>
+          </div>
+        </div>
+        <div class="btn-group">
+          <button class="btn btn-primary">Lưu nháp</button>
+          <button class="btn btn-outline">Đăng nhà</button>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="site-footer">ODauDay Stay · Bài tập lớn OOAD · Prototype giao diện, dữ liệu tĩnh trong trang.</footer>
+  <script src="assets/js/ui.js"></script>
+</body>
+</html>

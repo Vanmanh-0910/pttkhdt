@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ODauDay Stay — Đăng ký (UC-01)</title>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  <div class="proto-flag">PROTOTYPE — dữ liệu tĩnh, không có backend/CSDL. Dùng để minh hoạ giao diện theo Use Case.</div>
+
+  <header class="site-header">
+    <div class="bar">
+      <a class="brand" href="index.html">ODauDay Stay <span>· cho thuê homestay</span></a>
+      <nav class="nav" aria-label="Điều hướng khách thuê">
+        <a href="index.html">Trang chủ</a>
+        <a href="search-results.html">Tìm kiếm</a>
+        <a href="my-bookings.html">Đơn của tôi</a>
+        <a href="login.html">Đăng nhập</a>
+      </nav>
+      <div class="role-switch" aria-label="Chuyển vai trò để xem màn hình">
+        <span>Vai trò:</span>
+        <a href="index.html" class="active">Khách</a>
+        <a href="host-properties.html">Chủ nhà</a>
+        <a href="admin-users.html">Quản trị</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <span class="uc-tag">UC-01 · Xác thực người dùng</span>
+    <h1 class="page-title">Đăng ký tài khoản</h1>
+    <p class="page-sub">Tài khoản mới mặc định có vai trò GUEST. Tên đăng nhập và số điện thoại phải là duy nhất.</p>
+
+    <section class="panel" style="max-width:520px;">
+      <div class="alert alert-warn" role="alert" data-state="dup" hidden>
+        <strong>Thông tin đã tồn tại</strong>
+        Tên đăng nhập hoặc số điện thoại đã được sử dụng. Vui lòng nhập thông tin khác.
+      </div>
+      <form action="login.html" method="get">
+        <div class="field">
+          <label for="fullname">Họ và tên</label>
+          <input id="fullname" name="fullname" type="text" placeholder="Nguyễn Văn A" />
+        </div>
+        <div class="row">
+          <div class="field">
+            <label for="username">Tên đăng nhập</label>
+            <input id="username" name="username" type="text" placeholder="vidu.user" />
+          </div>
+          <div class="field">
+            <label for="phone">Số điện thoại</label>
+            <input id="phone" name="phone" type="tel" placeholder="09xxxxxxxx" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="field">
+            <label for="pw">Mật khẩu</label>
+            <input id="pw" name="pw" type="password" />
+          </div>
+          <div class="field">
+            <label for="pw2">Nhập lại mật khẩu</label>
+            <input id="pw2" name="pw2" type="password" />
+          </div>
+        </div>
+        <button class="btn btn-primary btn-block" type="submit">Tạo tài khoản</button>
+      </form>
+      <p class="muted" style="margin-top:0.8rem;">Đã có tài khoản? <a href="login.html">Đăng nhập</a></p>
+      <p class="muted"><a data-goto-state="dup" href="#">Xem trạng thái trùng thông tin</a></p>
+    </section>
+  </main>
+
+  <footer class="site-footer">ODauDay Stay · Bài tập lớn OOAD · Prototype giao diện, dữ liệu tĩnh trong trang.</footer>
+  <script src="assets/js/ui.js"></script>
+</body>
+</html>

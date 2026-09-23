@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ODauDay Stay — Đặt phòng thành công (UC-03 / TC-04)</title>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  <div class="proto-flag">PROTOTYPE — dữ liệu tĩnh, không có backend/CSDL. Dùng để minh hoạ giao diện theo Use Case.</div>
+
+  <header class="site-header">
+    <div class="bar">
+      <a class="brand" href="index.html">ODauDay Stay <span>· cho thuê homestay</span></a>
+      <nav class="nav" aria-label="Điều hướng khách thuê">
+        <a href="index.html">Trang chủ</a>
+        <a href="search-results.html">Tìm kiếm</a>
+        <a href="my-bookings.html">Đơn của tôi</a>
+        <a href="login.html">Đăng nhập</a>
+      </nav>
+      <div class="role-switch"><span>Vai trò:</span>
+        <a href="index.html" class="active">Khách</a>
+        <a href="host-properties.html">Chủ nhà</a>
+        <a href="admin-users.html">Quản trị</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <span class="uc-tag">UC-03 · Đặt phòng</span>
+    <h1 class="page-title">Đặt phòng thành công</h1>
+    <div class="steps">
+      <span class="step done">1. Báo giá</span><span class="sep">›</span>
+      <span class="step done">2. Xác nhận</span><span class="sep">›</span>
+      <span class="step current">3. Hoàn tất</span>
+    </div>
+
+    <section class="panel" style="max-width:560px;">
+      <div class="alert alert-ok" role="status">
+        <strong>Đã tạo đơn đặt phòng (TC-04)</strong>
+        Đơn của bạn đang chờ chủ nhà xác nhận.
+      </div>
+      <table>
+        <tbody>
+          <tr><th>Mã đơn</th><td><strong>ODD-DEMO-0002</strong></td></tr>
+          <tr><th>Trạng thái</th><td><span class="badge badge-pending">PENDING</span></td></tr>
+          <tr><th>Phòng</th><td>ODauDay Stay Hồ Tây · Phòng Garden</td></tr>
+          <tr><th>Thời gian</th><td>10/01/2027 → 12/01/2027 (2 đêm)</td></tr>
+          <tr><th>Số khách</th><td>2 người lớn</td></tr>
+          <tr><th>Tổng tiền</th><td class="price">1.300.000đ</td></tr>
+        </tbody>
+      </table>
+      <div class="btn-group" style="margin-top:1rem;">
+        <a class="btn btn-primary" href="my-bookings.html">Xem đơn của tôi</a>
+        <a class="btn btn-outline" href="index.html">Về trang chủ</a>
+      </div>
+      <p class="muted" style="margin-top:0.8rem;">Đơn sẽ tự hết hạn nếu chủ nhà không xác nhận trong thời hạn quy định.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">ODauDay Stay · Bài tập lớn OOAD · Prototype giao diện, dữ liệu tĩnh trong trang.</footer>
+  <script src="assets/js/ui.js"></script>
+</body>
+</html>

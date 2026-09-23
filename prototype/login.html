@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ODauDay Stay — Đăng nhập (UC-01 / TC-01, TC-02)</title>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  <div class="proto-flag">PROTOTYPE — dữ liệu tĩnh, không có backend/CSDL. Đăng nhập chỉ mô phỏng giao diện, không có xác thực thật.</div>
+
+  <header class="site-header">
+    <div class="bar">
+      <a class="brand" href="index.html">ODauDay Stay <span>· cho thuê homestay</span></a>
+      <nav class="nav" aria-label="Điều hướng khách thuê">
+        <a href="index.html">Trang chủ</a>
+        <a href="search-results.html">Tìm kiếm</a>
+        <a href="my-bookings.html">Đơn của tôi</a>
+        <a href="login.html">Đăng nhập</a>
+      </nav>
+      <div class="role-switch" aria-label="Chuyển vai trò để xem màn hình">
+        <span>Vai trò:</span>
+        <a href="index.html" class="active">Khách</a>
+        <a href="host-properties.html">Chủ nhà</a>
+        <a href="admin-users.html">Quản trị</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <span class="uc-tag">UC-01 · Xác thực người dùng</span>
+    <h1 class="page-title">Đăng nhập</h1>
+    <p class="page-sub">Trang minh hoạ ba trạng thái: thành công (TC-01), sai thông tin (TC-02) và tài khoản bị khoá.</p>
+
+    <div class="btn-group" style="margin-bottom:1rem;">
+      <a class="btn btn-outline btn-sm" data-goto-state="default" href="#">Mặc định</a>
+      <a class="btn btn-outline btn-sm" data-goto-state="wrong" href="#">Sai mật khẩu (TC-02)</a>
+      <a class="btn btn-outline btn-sm" data-goto-state="locked" href="#">Tài khoản bị khoá</a>
+    </div>
+
+    <div class="layout-side">
+      <section class="panel" style="max-width:420px;">
+        <div class="alert alert-error" role="alert" data-state="wrong" hidden>
+          <strong>Đăng nhập thất bại (TC-02)</strong>
+          Tên đăng nhập hoặc mật khẩu không đúng. Vì lý do bảo mật, hệ thống không cho biết trường nào sai.
+        </div>
+        <div class="alert alert-error" role="alert" data-state="locked" hidden>
+          <strong>Tài khoản đã bị khoá</strong>
+          Tài khoản của bạn đang bị khoá. Vui lòng liên hệ quản trị viên để được mở khoá.
+        </div>
+        <div class="alert alert-ok" role="status" data-state="default" hidden>
+          <strong>Đăng nhập thành công (TC-01)</strong>
+          Đang chuyển đến màn hình theo vai trò của bạn…
+        </div>
+
+        <form action="login.html" method="get">
+          <div class="field">
+            <label for="username">Tên đăng nhập</label>
+            <input id="username" name="username" type="text" value="guest.demo" />
+          </div>
+          <div class="field">
+            <label for="password">Mật khẩu</label>
+            <input id="password" name="password" type="password" value="********" />
+          </div>
+          <button class="btn btn-primary btn-block" type="submit">Đăng nhập</button>
+        </form>
+        <p class="muted" style="margin-top:0.8rem;">Chưa có tài khoản? <a href="register.html">Đăng ký</a></p>
+      </section>
+
+      <aside class="panel">
+        <h3>Tài khoản demo</h3>
+        <table>
+          <thead><tr><th>Tài khoản</th><th>Vai trò</th><th>Trạng thái</th></tr></thead>
+          <tbody>
+            <tr><td>guest.demo</td><td>GUEST</td><td><span class="badge badge-active">ACTIVE</span></td></tr>
+            <tr><td>host.demo</td><td>HOST</td><td><span class="badge badge-active">ACTIVE</span></td></tr>
+            <tr><td>admin.demo</td><td>ADMIN</td><td><span class="badge badge-active">ACTIVE</span></td></tr>
+            <tr><td>minh.pham</td><td>HOST</td><td><span class="badge badge-locked">LOCKED</span></td></tr>
+          </tbody>
+        </table>
+        <p class="muted">Mật khẩu được lưu dạng băm ở thiết kế thật (NFR-04). Prototype không lưu mật khẩu.</p>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="site-footer">ODauDay Stay · Bài tập lớn OOAD · Prototype giao diện, dữ liệu tĩnh trong trang.</footer>
+  <script src="assets/js/ui.js"></script>
+</body>
+</html>

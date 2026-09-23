@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ODauDay Stay — Kết quả tìm kiếm (UC-02)</title>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  <div class="proto-flag">PROTOTYPE — dữ liệu tĩnh, không có backend/CSDL. Dùng để minh hoạ giao diện theo Use Case.</div>
+
+  <header class="site-header">
+    <div class="bar">
+      <a class="brand" href="index.html">ODauDay Stay <span>· cho thuê homestay</span></a>
+      <nav class="nav" aria-label="Điều hướng khách thuê">
+        <a href="index.html">Trang chủ</a>
+        <a href="search-results.html">Tìm kiếm</a>
+        <a href="my-bookings.html">Đơn của tôi</a>
+        <a href="login.html">Đăng nhập</a>
+      </nav>
+      <div class="role-switch" aria-label="Chuyển vai trò để xem màn hình">
+        <span>Vai trò:</span>
+        <a href="index.html" class="active">Khách</a>
+        <a href="host-properties.html">Chủ nhà</a>
+        <a href="admin-users.html">Quản trị</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <p class="breadcrumb"><a href="index.html">Trang chủ</a> › Kết quả tìm kiếm</p>
+    <span class="uc-tag">UC-02 · Tìm kiếm và xem chỗ ở</span>
+    <h1 class="page-title">Kết quả cho “Hồ Tây” · 10/01/2027 → 12/01/2027 · 2 khách</h1>
+    <p class="page-sub">Tìm thấy 1 phòng phù hợp. Phòng đã có đơn giữ chỗ hoặc đang bảo trì trong khoảng ngày này đã được loại khỏi kết quả.</p>
+
+    <div class="layout-side">
+      <div>
+        <div class="grid grid-2">
+          <article class="card">
+            <div class="thumb">Ảnh phòng (placeholder)</div>
+            <div class="body">
+              <h3>ODauDay Stay Hồ Tây · Phòng Garden</h3>
+              <p class="meta">Homestay · Quận Tây Hồ, Hà Nội</p>
+              <p class="meta">Sức chứa 2 khách · còn trống 10–12/01</p>
+              <p class="meta stars">★★★★★ <span class="muted">5.0 (1 đánh giá)</span></p>
+              <p class="price">650.000đ <small>/ đêm</small></p>
+              <a class="btn btn-primary btn-sm" href="property-detail.html">Xem chi tiết</a>
+            </div>
+          </article>
+          <article class="card" style="opacity:.55;">
+            <div class="thumb">Ảnh phòng (placeholder)</div>
+            <div class="body">
+              <h3>ODauDay Stay Hồ Tây · Phòng Family</h3>
+              <p class="meta">Homestay · Quận Tây Hồ, Hà Nội</p>
+              <p class="meta"><span class="badge badge-locked">Không khả dụng</span> bảo trì 10–12/02</p>
+              <p class="price">1.100.000đ <small>/ đêm</small></p>
+              <button class="btn btn-outline btn-sm" disabled>Không thể đặt</button>
+            </div>
+          </article>
+        </div>
+        <p class="muted" style="margin-top:1rem;">Ghi chú: Phòng Family bị ẩn/khoá khi khoảng ngày trùng RoomBlock (minh hoạ quy tắc BR-03/BR-04). Xem thêm <a href="search-states.html?state=empty">trạng thái không có kết quả</a>.</p>
+      </div>
+
+      <aside class="panel" aria-label="Bộ lọc">
+        <h3>Lọc lại</h3>
+        <form action="search-results.html" method="get">
+          <div class="field">
+            <label for="kw">Từ khoá</label>
+            <input id="kw" name="kw" value="Hồ Tây" />
+          </div>
+          <div class="field">
+            <label for="in">Ngày đến</label>
+            <input id="in" name="in" type="date" value="2027-01-10" />
+          </div>
+          <div class="field">
+            <label for="out">Ngày đi</label>
+            <input id="out" name="out" type="date" value="2027-01-12" />
+          </div>
+          <div class="field">
+            <label for="guests">Số khách</label>
+            <input id="guests" name="guests" type="number" min="1" value="2" />
+          </div>
+          <button class="btn btn-primary btn-block" type="submit">Áp dụng</button>
+        </form>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="site-footer">ODauDay Stay · Bài tập lớn OOAD · Prototype giao diện, dữ liệu tĩnh trong trang.</footer>
+  <script src="assets/js/ui.js"></script>
+</body>
+</html>

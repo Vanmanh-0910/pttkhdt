@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ODauDay Stay — Báo cáo doanh thu (UC-09 / TC-14)</title>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  <div class="proto-flag">PROTOTYPE — dữ liệu tĩnh, không có backend/CSDL. Dùng để minh hoạ giao diện theo Use Case.</div>
+
+  <header class="site-header">
+    <div class="bar">
+      <a class="brand" href="index.html">ODauDay Stay <span>· khu vực chủ nhà</span></a>
+      <nav class="nav" aria-label="Điều hướng chủ nhà">
+        <a href="host-properties.html">Nhà của tôi</a>
+        <a href="host-rooms.html">Phòng</a>
+        <a href="host-bookings.html">Đơn đặt</a>
+        <a href="host-revenue.html">Doanh thu</a>
+      </nav>
+      <div class="role-switch"><span>Vai trò:</span>
+        <a href="index.html">Khách</a>
+        <a href="host-properties.html" class="active">Chủ nhà</a>
+        <a href="admin-users.html">Quản trị</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <span class="uc-tag">UC-09 · Xem báo cáo doanh thu</span>
+    <h1 class="page-title">Báo cáo doanh thu theo tháng</h1>
+    <p class="page-sub">Chỉ cộng các đơn COMPLETED thuộc nhà của host.demo (BR-08).</p>
+
+    <section class="panel">
+      <div class="row-3">
+        <div class="field"><label for="from">Từ tháng</label><input id="from" type="month" value="2026-12" /></div>
+        <div class="field"><label for="to">Đến tháng</label><input id="to" type="month" value="2027-01" /></div>
+        <div class="field"><label for="prop">Nhà</label><select id="prop"><option>Tất cả</option><option selected>ODauDay Stay Hồ Tây</option></select></div>
+      </div>
+      <button class="btn btn-primary">Xem báo cáo</button>
+    </section>
+
+    <div class="grid grid-3" style="margin:1.1rem 0;">
+      <div class="panel"><p class="muted mb-0">Doanh thu tháng 01/2027</p><p class="price" style="font-size:1.5rem;">1.300.000đ</p></div>
+      <div class="panel"><p class="muted mb-0">Số đơn hoàn thành</p><p class="price" style="font-size:1.5rem;">1</p></div>
+      <div class="panel"><p class="muted mb-0">Đơn không tính (huỷ/từ chối)</p><p class="price" style="font-size:1.5rem;">1</p></div>
+    </div>
+
+    <section class="panel">
+      <h2>Chi tiết theo đơn</h2>
+      <table>
+        <thead><tr><th>Mã đơn</th><th>Phòng</th><th>Tháng hoàn thành</th><th>Trạng thái</th><th>Tính vào doanh thu</th><th>Số tiền</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>ODD-DEMO-0001</td><td>Phòng Garden</td><td>01/2027</td>
+            <td><span class="badge badge-completed">COMPLETED</span></td>
+            <td><span class="badge badge-active">Có</span></td>
+            <td class="price">1.300.000đ</td>
+          </tr>
+          <tr>
+            <td>ODD-DEMO-0000</td><td>Phòng Family</td><td>—</td>
+            <td><span class="badge badge-cancelled">CANCELLED</span></td>
+            <td><span class="badge badge-rejected">Không (TC-14)</span></td>
+            <td class="muted">0đ</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr><th colspan="5" class="text-right">Tổng doanh thu 01/2027</th><th class="price">1.300.000đ</th></tr>
+        </tfoot>
+      </table>
+    </section>
+  </main>
+
+  <footer class="site-footer">ODauDay Stay · Bài tập lớn OOAD · Prototype giao diện, dữ liệu tĩnh trong trang.</footer>
+  <script src="assets/js/ui.js"></script>
+</body>
+</html>

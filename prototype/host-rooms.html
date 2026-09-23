@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ODauDay Stay — Quản lý phòng (UC-07)</title>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  <div class="proto-flag">PROTOTYPE — dữ liệu tĩnh, không có backend/CSDL. Dùng để minh hoạ giao diện theo Use Case.</div>
+
+  <header class="site-header">
+    <div class="bar">
+      <a class="brand" href="index.html">ODauDay Stay <span>· khu vực chủ nhà</span></a>
+      <nav class="nav" aria-label="Điều hướng chủ nhà">
+        <a href="host-properties.html">Nhà của tôi</a>
+        <a href="host-rooms.html">Phòng</a>
+        <a href="host-bookings.html">Đơn đặt</a>
+        <a href="host-revenue.html">Doanh thu</a>
+      </nav>
+      <div class="role-switch"><span>Vai trò:</span>
+        <a href="index.html">Khách</a>
+        <a href="host-properties.html" class="active">Chủ nhà</a>
+        <a href="admin-users.html">Quản trị</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <p class="breadcrumb"><a href="host-properties.html">Nhà của tôi</a> › ODauDay Stay Hồ Tây › Phòng</p>
+    <span class="uc-tag">UC-07 · Quản lý phòng và lịch chặn</span>
+    <h1 class="page-title">Phòng của ODauDay Stay Hồ Tây</h1>
+
+    <div class="layout-side">
+      <section class="panel">
+        <div style="display:flex;justify-content:space-between;align-items:center;">
+          <h2 class="mb-0">Danh sách phòng</h2>
+          <a class="btn btn-primary btn-sm" href="#roomform">+ Thêm phòng</a>
+        </div>
+        <div class="divider"></div>
+        <table>
+          <thead><tr><th>Phòng</th><th>Sức chứa</th><th>Giá/đêm</th><th>Trạng thái</th><th></th></tr></thead>
+          <tbody>
+            <tr>
+              <td><strong>Phòng Garden</strong></td>
+              <td>2</td>
+              <td class="price">650.000đ</td>
+              <td><span class="badge badge-active">ACTIVE</span></td>
+              <td><a class="btn btn-outline btn-sm" href="host-roomblock.html">Chặn lịch</a></td>
+            </tr>
+            <tr>
+              <td><strong>Phòng Family</strong></td>
+              <td>4</td>
+              <td class="price">1.100.000đ</td>
+              <td><span class="badge badge-locked">MAINTENANCE</span></td>
+              <td><a class="btn btn-outline btn-sm" href="host-roomblock.html">Chặn lịch</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <aside class="panel" id="roomform">
+        <h3>Thêm / sửa phòng</h3>
+        <div class="field"><label for="rname">Tên phòng</label><input id="rname" value="Phòng Garden" /></div>
+        <div class="row">
+          <div class="field"><label for="cap">Sức chứa</label><input id="cap" type="number" min="1" value="2" /></div>
+          <div class="field"><label for="price">Giá/đêm (đ)</label><input id="price" type="number" min="1" value="650000" /></div>
+        </div>
+        <div class="field"><label for="rstatus">Trạng thái</label>
+          <select id="rstatus"><option selected>ACTIVE</option><option>INACTIVE</option><option>MAINTENANCE</option></select>
+        </div>
+        <p class="hint muted">Giá và sức chứa phải là số dương (BR-02).</p>
+        <button class="btn btn-primary btn-block">Lưu phòng</button>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="site-footer">ODauDay Stay · Bài tập lớn OOAD · Prototype giao diện, dữ liệu tĩnh trong trang.</footer>
+  <script src="assets/js/ui.js"></script>
+</body>
+</html>

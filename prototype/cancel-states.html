@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ODauDay Stay — Huỷ đơn (UC-04 / TC-07, TC-08)</title>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  <div class="proto-flag">PROTOTYPE — dữ liệu tĩnh, không có backend/CSDL. Dùng để minh hoạ giao diện theo Use Case.</div>
+
+  <header class="site-header">
+    <div class="bar">
+      <a class="brand" href="index.html">ODauDay Stay <span>· cho thuê homestay</span></a>
+      <nav class="nav" aria-label="Điều hướng khách thuê">
+        <a href="index.html">Trang chủ</a>
+        <a href="search-results.html">Tìm kiếm</a>
+        <a href="my-bookings.html">Đơn của tôi</a>
+        <a href="login.html">Đăng nhập</a>
+      </nav>
+      <div class="role-switch"><span>Vai trò:</span>
+        <a href="index.html" class="active">Khách</a>
+        <a href="host-properties.html">Chủ nhà</a>
+        <a href="admin-users.html">Quản trị</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <p class="breadcrumb"><a href="my-bookings.html">Đơn của tôi</a> › Huỷ đơn</p>
+    <span class="uc-tag">UC-04 · Quản lý đơn của khách</span>
+    <h1 class="page-title">Huỷ đơn</h1>
+
+    <div class="btn-group" style="margin-bottom:1rem;">
+      <a class="btn btn-outline btn-sm" data-goto-state="confirm" href="#">Xác nhận huỷ (TC-07)</a>
+      <a class="btn btn-outline btn-sm" data-goto-state="blocked" href="#">Bị từ chối (TC-08)</a>
+    </div>
+
+    <!-- TC-07: huỷ hợp lệ -->
+    <section class="panel" style="max-width:520px;" data-state="confirm default">
+      <div class="alert alert-warn" role="alert">
+        <strong>Xác nhận huỷ đơn ODD-DEMO-0002 (TC-07)</strong>
+        Đơn đang ở trạng thái PENDING và còn trong thời hạn cho phép huỷ.
+      </div>
+      <div class="field">
+        <label for="reason">Lý do huỷ (không bắt buộc)</label>
+        <textarea id="reason" placeholder="Thay đổi lịch trình…"></textarea>
+      </div>
+      <div class="btn-group">
+        <a class="btn btn-danger" href="my-bookings.html">Xác nhận huỷ</a>
+        <a class="btn btn-outline" href="my-booking-detail.html">Không huỷ nữa</a>
+      </div>
+    </section>
+
+    <!-- TC-08: không được huỷ -->
+    <section class="panel" style="max-width:520px;" data-state="blocked" hidden>
+      <div class="alert alert-error" role="alert">
+        <strong>Không thể huỷ đơn (TC-08)</strong>
+        Đơn đang ở trạng thái CHECKED_IN nên không thể huỷ. Chỉ đơn PENDING hoặc CONFIRMED còn trong hạn mới được huỷ.
+      </div>
+      <table>
+        <tbody>
+          <tr><th>Mã đơn</th><td>ODD-DEMO-0003</td></tr>
+          <tr><th>Trạng thái</th><td><span class="badge badge-checked">CHECKED_IN</span></td></tr>
+        </tbody>
+      </table>
+      <a class="btn btn-outline" href="my-bookings.html" style="margin-top:1rem;">Quay lại danh sách</a>
+    </section>
+  </main>
+
+  <footer class="site-footer">ODauDay Stay · Bài tập lớn OOAD · Prototype giao diện, dữ liệu tĩnh trong trang.</footer>
+  <script src="assets/js/ui.js"></script>
+</body>
+</html>

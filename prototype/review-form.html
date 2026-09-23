@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ODauDay Stay — Đánh giá (UC-05 / TC-11, TC-12)</title>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  <div class="proto-flag">PROTOTYPE — dữ liệu tĩnh, không có backend/CSDL. Dùng để minh hoạ giao diện theo Use Case.</div>
+
+  <header class="site-header">
+    <div class="bar">
+      <a class="brand" href="index.html">ODauDay Stay <span>· cho thuê homestay</span></a>
+      <nav class="nav" aria-label="Điều hướng khách thuê">
+        <a href="index.html">Trang chủ</a>
+        <a href="search-results.html">Tìm kiếm</a>
+        <a href="my-bookings.html">Đơn của tôi</a>
+        <a href="login.html">Đăng nhập</a>
+      </nav>
+      <div class="role-switch"><span>Vai trò:</span>
+        <a href="index.html" class="active">Khách</a>
+        <a href="host-properties.html">Chủ nhà</a>
+        <a href="admin-users.html">Quản trị</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <p class="breadcrumb"><a href="my-bookings.html">Đơn của tôi</a> › Đánh giá ODD-DEMO-0001</p>
+    <span class="uc-tag">UC-05 · Đánh giá kỳ lưu trú</span>
+    <h1 class="page-title">Đánh giá kỳ lưu trú</h1>
+
+    <div class="btn-group" style="margin-bottom:1rem;">
+      <a class="btn btn-outline btn-sm" data-goto-state="default" href="#">Chưa đánh giá (TC-11)</a>
+      <a class="btn btn-outline btn-sm" data-goto-state="done" href="#">Đã đánh giá (TC-12)</a>
+    </div>
+
+    <!-- TC-11: đủ điều kiện đánh giá -->
+    <section class="panel" style="max-width:520px;" data-state="default">
+      <div class="alert alert-info" role="status">
+        <strong>Đơn ODD-DEMO-0001 · COMPLETED</strong>
+        Kỳ lưu trú đã hoàn thành và chưa có đánh giá. Bạn có thể đánh giá một lần.
+      </div>
+      <form action="review-form.html?state=done" method="get">
+        <input type="hidden" name="state" value="done" />
+        <div class="field">
+          <label for="rating">Điểm (1–5)</label>
+          <select id="rating">
+            <option>5 — Rất hài lòng</option>
+            <option>4 — Hài lòng</option>
+            <option>3 — Bình thường</option>
+            <option>2 — Không hài lòng</option>
+            <option>1 — Rất tệ</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="cmt">Nhận xét</label>
+          <textarea id="cmt" placeholder="Chia sẻ trải nghiệm của bạn…">Phòng sạch và chủ nhà hỗ trợ tốt.</textarea>
+        </div>
+        <button class="btn btn-primary btn-block" type="submit">Gửi đánh giá</button>
+      </form>
+    </section>
+
+    <!-- TC-12: đã đánh giá rồi -->
+    <section class="panel" style="max-width:520px;" data-state="done" hidden>
+      <div class="alert alert-warn" role="alert">
+        <strong>Đơn này đã được đánh giá (TC-12)</strong>
+        Mỗi đơn chỉ được đánh giá một lần. Bạn không thể gửi đánh giá thứ hai cho ODD-DEMO-0001.
+      </div>
+      <p class="stars mb-0">★★★★★</p>
+      <p class="mt-0 muted">“Phòng sạch và chủ nhà hỗ trợ tốt.” — đã gửi</p>
+      <a class="btn btn-outline" href="my-bookings.html">Quay lại đơn của tôi</a>
+    </section>
+  </main>
+
+  <footer class="site-footer">ODauDay Stay · Bài tập lớn OOAD · Prototype giao diện, dữ liệu tĩnh trong trang.</footer>
+  <script src="assets/js/ui.js"></script>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ODauDay Stay — Chi tiết nhà (UC-02)</title>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  <div class="proto-flag">PROTOTYPE — dữ liệu tĩnh, không có backend/CSDL. Dùng để minh hoạ giao diện theo Use Case.</div>
+
+  <header class="site-header">
+    <div class="bar">
+      <a class="brand" href="index.html">ODauDay Stay <span>· cho thuê homestay</span></a>
+      <nav class="nav" aria-label="Điều hướng khách thuê">
+        <a href="index.html">Trang chủ</a>
+        <a href="search-results.html">Tìm kiếm</a>
+        <a href="my-bookings.html">Đơn của tôi</a>
+        <a href="login.html">Đăng nhập</a>
+      </nav>
+      <div class="role-switch" aria-label="Chuyển vai trò để xem màn hình">
+        <span>Vai trò:</span>
+        <a href="index.html" class="active">Khách</a>
+        <a href="host-properties.html">Chủ nhà</a>
+        <a href="admin-users.html">Quản trị</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <p class="breadcrumb"><a href="index.html">Trang chủ</a> › <a href="search-results.html">Kết quả</a> › ODauDay Stay Hồ Tây</p>
+    <span class="uc-tag">UC-02 · Tìm kiếm và xem chỗ ở</span>
+    <h1 class="page-title">ODauDay Stay Hồ Tây</h1>
+    <p class="page-sub">Homestay · Quận Tây Hồ, Hà Nội · <span class="stars">★★★★★</span> 5.0 (1 đánh giá)</p>
+
+    <div class="grid grid-3" style="margin-bottom:1.3rem;">
+      <div class="thumb" style="height:180px;border-radius:10px;">Ảnh 1 (placeholder)</div>
+      <div class="thumb" style="height:180px;border-radius:10px;">Ảnh 2 (placeholder)</div>
+      <div class="thumb" style="height:180px;border-radius:10px;">Ảnh 3 (placeholder)</div>
+    </div>
+
+    <div class="layout-side">
+      <div>
+        <section class="panel">
+          <h2>Giới thiệu</h2>
+          <p>Không gian yên tĩnh, phù hợp nhóm nhỏ. Gần Hồ Tây, thuận tiện di chuyển vào trung tâm.</p>
+        </section>
+
+        <section class="panel" style="margin-top:1.1rem;">
+          <h2>Các phòng</h2>
+          <table>
+            <thead>
+              <tr><th>Phòng</th><th>Sức chứa</th><th>Giá/đêm</th><th>Trạng thái</th><th></th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Phòng Garden</td>
+                <td>2 khách</td>
+                <td class="price">650.000đ</td>
+                <td><span class="badge badge-active">Còn trống</span></td>
+                <td><a class="btn btn-primary btn-sm" href="booking-quote.html">Đặt phòng</a></td>
+              </tr>
+              <tr>
+                <td>Phòng Family</td>
+                <td>4 khách</td>
+                <td class="price">1.100.000đ</td>
+                <td><span class="badge badge-locked">Bảo trì 10–12/02</span></td>
+                <td><button class="btn btn-outline btn-sm" disabled>Không thể đặt</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section class="panel" style="margin-top:1.1rem;">
+          <h2>Đánh giá</h2>
+          <div class="divider"></div>
+          <p class="stars mb-0">★★★★★</p>
+          <p class="mt-0"><strong>Khách thuê Demo</strong> · đơn ODD-DEMO-0001</p>
+          <p class="muted">“Phòng sạch và chủ nhà hỗ trợ tốt.”</p>
+        </section>
+      </div>
+
+      <aside class="panel" aria-label="Tóm tắt đặt phòng">
+        <h3>Đặt nhanh</h3>
+        <p class="price" style="font-size:1.3rem;">650.000đ <small>/ đêm</small></p>
+        <div class="field"><label>Ngày đến</label><input type="date" value="2027-01-10" /></div>
+        <div class="field"><label>Ngày đi</label><input type="date" value="2027-01-12" /></div>
+        <div class="field"><label>Số khách</label><input type="number" min="1" value="2" /></div>
+        <a class="btn btn-primary btn-block" href="booking-quote.html">Tiếp tục đặt phòng</a>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="site-footer">ODauDay Stay · Bài tập lớn OOAD · Prototype giao diện, dữ liệu tĩnh trong trang.</footer>
+  <script src="assets/js/ui.js"></script>
+</body>
+</html>

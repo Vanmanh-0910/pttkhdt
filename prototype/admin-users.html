@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ODauDay Stay — Quản lý tài khoản (UC-10)</title>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  <div class="proto-flag">PROTOTYPE — dữ liệu tĩnh, không có backend/CSDL. Dùng để minh hoạ giao diện theo Use Case.</div>
+
+  <header class="site-header">
+    <div class="bar">
+      <a class="brand" href="index.html">ODauDay Stay <span>· khu vực quản trị</span></a>
+      <nav class="nav" aria-label="Điều hướng quản trị">
+        <a href="admin-users.html">Tài khoản</a>
+      </nav>
+      <div class="role-switch"><span>Vai trò:</span>
+        <a href="index.html">Khách</a>
+        <a href="host-properties.html">Chủ nhà</a>
+        <a href="admin-users.html" class="active">Quản trị</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <span class="uc-tag">UC-10 · Quản lý tài khoản và quyền</span>
+    <h1 class="page-title">Quản lý tài khoản</h1>
+    <p class="page-sub">Tìm tài khoản, đổi vai trò, khoá hoặc mở khoá. Quản trị viên không thể tự khoá và không xoá được admin cuối cùng.</p>
+
+    <section class="panel">
+      <div class="row-3" style="align-items:end;">
+        <div class="field"><label for="kw">Tìm theo tên/username</label><input id="kw" placeholder="Nhập từ khoá…" /></div>
+        <div class="field"><label for="frole">Vai trò</label><select id="frole"><option>Tất cả</option><option>ADMIN</option><option>HOST</option><option>GUEST</option></select></div>
+        <div class="field"><label for="fstatus">Trạng thái</label><select id="fstatus"><option>Tất cả</option><option>ACTIVE</option><option>LOCKED</option></select></div>
+      </div>
+    </section>
+
+    <section class="panel" style="margin-top:1.1rem;">
+      <table>
+        <thead>
+          <tr><th>ID</th><th>Họ tên</th><th>Username</th><th>Vai trò</th><th>Trạng thái</th><th>Thao tác</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td><td>Quản trị Demo</td><td>admin.demo</td>
+            <td><span class="badge badge-confirmed">ADMIN</span></td>
+            <td><span class="badge badge-active">ACTIVE</span></td>
+            <td><span class="muted">Tài khoản của bạn</span></td>
+          </tr>
+          <tr>
+            <td>2</td><td>Chủ nhà Demo</td><td>host.demo</td>
+            <td><span class="badge badge-confirmed">HOST</span></td>
+            <td><span class="badge badge-active">ACTIVE</span></td>
+            <td class="btn-group"><button class="btn btn-outline btn-sm">Đổi vai trò</button><button class="btn btn-danger btn-sm">Khoá</button></td>
+          </tr>
+          <tr>
+            <td>3</td><td>Khách thuê Demo</td><td>guest.demo</td>
+            <td><span class="badge badge-confirmed">GUEST</span></td>
+            <td><span class="badge badge-active">ACTIVE</span></td>
+            <td class="btn-group"><button class="btn btn-outline btn-sm">Đổi vai trò</button><button class="btn btn-danger btn-sm">Khoá</button></td>
+          </tr>
+          <tr>
+            <td>5</td><td>Phạm Quang Minh</td><td>minh.pham</td>
+            <td><span class="badge badge-confirmed">HOST</span></td>
+            <td><span class="badge badge-locked">LOCKED</span></td>
+            <td class="btn-group"><button class="btn btn-outline btn-sm">Đổi vai trò</button><button class="btn btn-primary btn-sm">Mở khoá</button></td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="muted">Tài khoản LOCKED không thể tạo phiên đăng nhập mới (NFR-05).</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">ODauDay Stay · Bài tập lớn OOAD · Prototype giao diện, dữ liệu tĩnh trong trang.</footer>
+  <script src="assets/js/ui.js"></script>
+</body>
+</html>

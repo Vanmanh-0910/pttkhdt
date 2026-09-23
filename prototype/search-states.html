@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ODauDay Stay — Trạng thái tìm kiếm (UC-02 / TC-03)</title>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  <div class="proto-flag">PROTOTYPE — dữ liệu tĩnh, không có backend/CSDL. Dùng để minh hoạ giao diện theo Use Case.</div>
+
+  <header class="site-header">
+    <div class="bar">
+      <a class="brand" href="index.html">ODauDay Stay <span>· cho thuê homestay</span></a>
+      <nav class="nav" aria-label="Điều hướng khách thuê">
+        <a href="index.html">Trang chủ</a>
+        <a href="search-results.html">Tìm kiếm</a>
+        <a href="my-bookings.html">Đơn của tôi</a>
+        <a href="login.html">Đăng nhập</a>
+      </nav>
+      <div class="role-switch" aria-label="Chuyển vai trò để xem màn hình">
+        <span>Vai trò:</span>
+        <a href="index.html" class="active">Khách</a>
+        <a href="host-properties.html">Chủ nhà</a>
+        <a href="admin-users.html">Quản trị</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <p class="breadcrumb"><a href="index.html">Trang chủ</a> › Tìm kiếm › Trạng thái</p>
+    <span class="uc-tag">UC-02 · Tìm kiếm và xem chỗ ở</span>
+    <h1 class="page-title">Trạng thái tìm kiếm</h1>
+    <p class="page-sub">Trang minh hoạ hai trạng thái đặc biệt của tìm kiếm. Chuyển bằng tham số <code>?state=</code>.</p>
+
+    <div class="btn-group" style="margin-bottom:1rem;">
+      <a class="btn btn-outline btn-sm" data-goto-state="invalid-date" href="#">Xem lỗi ngày (TC-03)</a>
+      <a class="btn btn-outline btn-sm" data-goto-state="empty" href="#">Xem không có kết quả</a>
+    </div>
+
+    <!-- TC-03: ngày đi <= ngày đến -->
+    <section data-state="invalid-date default" class="panel">
+      <div class="alert alert-error" role="alert">
+        <strong>Ngày không hợp lệ (TC-03)</strong>
+        Ngày đi phải sau ngày đến. Vui lòng chọn lại. Hệ thống không thực hiện tìm kiếm khi dữ liệu ngày sai.
+      </div>
+      <form action="search-results.html" method="get">
+        <div class="row-3">
+          <div class="field">
+            <label for="in">Ngày đến</label>
+            <input id="in" name="in" type="date" value="2027-01-12" aria-invalid="true" />
+          </div>
+          <div class="field">
+            <label for="out">Ngày đi</label>
+            <input id="out" name="out" type="date" value="2027-01-10" aria-invalid="true" />
+            <span class="hint" style="color:var(--danger);">Ngày đi đang nhỏ hơn ngày đến.</span>
+          </div>
+          <div class="field">
+            <label for="guests">Số khách</label>
+            <input id="guests" name="guests" type="number" min="1" value="2" />
+          </div>
+        </div>
+        <button class="btn btn-primary" type="submit">Tìm lại</button>
+      </form>
+    </section>
+
+    <!-- Không có kết quả -->
+    <section data-state="empty" class="panel" hidden>
+      <div class="alert alert-info" role="status">
+        <strong>Không tìm thấy phòng phù hợp</strong>
+        Không có phòng nào còn trống với tiêu chí hiện tại trong khoảng ngày đã chọn.
+      </div>
+      <p class="muted">Gợi ý: nới rộng khoảng giá, giảm số khách hoặc chọn ngày khác.</p>
+      <a class="btn btn-primary" href="index.html">Về trang tìm kiếm</a>
+    </section>
+  </main>
+
+  <footer class="site-footer">ODauDay Stay · Bài tập lớn OOAD · Prototype giao diện, dữ liệu tĩnh trong trang.</footer>
+  <script src="assets/js/ui.js"></script>
+</body>
+</html>

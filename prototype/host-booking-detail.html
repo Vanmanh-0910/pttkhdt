@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ODauDay Stay — Xử lý đơn (UC-08 / TC-09, TC-10)</title>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  <div class="proto-flag">PROTOTYPE — dữ liệu tĩnh, không có backend/CSDL. Dùng để minh hoạ giao diện theo Use Case.</div>
+
+  <header class="site-header">
+    <div class="bar">
+      <a class="brand" href="index.html">ODauDay Stay <span>· khu vực chủ nhà</span></a>
+      <nav class="nav" aria-label="Điều hướng chủ nhà">
+        <a href="host-properties.html">Nhà của tôi</a>
+        <a href="host-rooms.html">Phòng</a>
+        <a href="host-bookings.html">Đơn đặt</a>
+        <a href="host-revenue.html">Doanh thu</a>
+      </nav>
+      <div class="role-switch"><span>Vai trò:</span>
+        <a href="index.html">Khách</a>
+        <a href="host-properties.html" class="active">Chủ nhà</a>
+        <a href="admin-users.html">Quản trị</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <p class="breadcrumb"><a href="host-bookings.html">Đơn đặt</a> › ODD-DEMO-0002</p>
+    <span class="uc-tag">UC-08 · Xử lý đơn đặt</span>
+    <h1 class="page-title">Xử lý đơn ODD-DEMO-0002</h1>
+
+    <div class="btn-group" style="margin-bottom:1rem;">
+      <a class="btn btn-outline btn-sm" data-goto-state="default" href="#">Đúng chủ sở hữu (TC-10)</a>
+      <a class="btn btn-outline btn-sm" data-goto-state="forbidden" href="#">Không có quyền (TC-09)</a>
+    </div>
+
+    <!-- TC-09: chủ nhà khác -->
+    <div class="alert alert-error" role="alert" data-state="forbidden" hidden>
+      <strong>Không có quyền (TC-09 · lỗi 403)</strong>
+      Đơn này thuộc nhà của chủ khác. Bạn không được xác nhận, từ chối hay thay đổi. Dữ liệu không bị thay đổi.
+    </div>
+
+    <div class="layout-side">
+      <section class="panel">
+        <h2>Thông tin đơn</h2>
+        <table>
+          <tbody>
+            <tr><th>Khách</th><td>Khách thuê Demo</td></tr>
+            <tr><th>Phòng</th><td>ODauDay Stay Hồ Tây · Phòng Garden</td></tr>
+            <tr><th>Thời gian</th><td>10/01/2027 → 12/01/2027 (2 đêm)</td></tr>
+            <tr><th>Tổng tiền</th><td class="price">1.300.000đ</td></tr>
+            <tr><th>Trạng thái</th><td><span class="badge badge-pending">PENDING</span></td></tr>
+          </tbody>
+        </table>
+
+        <h3 style="margin-top:1.2rem;">Vòng đời đơn</h3>
+        <div class="steps">
+          <span class="step current">PENDING</span><span class="sep">›</span>
+          <span class="step">CONFIRMED</span><span class="sep">›</span>
+          <span class="step">CHECKED_IN</span><span class="sep">›</span>
+          <span class="step">COMPLETED</span>
+        </div>
+        <p class="muted">Mỗi nút chỉ hiện đúng bước hợp lệ theo state machine (BR-10).</p>
+      </section>
+
+      <aside class="panel">
+        <h3>Thao tác (TC-10)</h3>
+        <div data-state="default" >
+          <a class="btn btn-primary btn-block" href="host-bookings.html">Xác nhận đơn</a>
+          <a class="btn btn-danger btn-block" href="host-bookings.html" style="margin-top:0.5rem;">Từ chối đơn</a>
+          <hr class="divider" />
+          <p class="muted">Sau khi CONFIRMED sẽ hiện nút Check-in; sau CHECKED_IN sẽ hiện nút Hoàn thành.</p>
+        </div>
+        <div data-state="forbidden" hidden>
+          <p class="muted">Các nút thao tác bị ẩn vì bạn không phải chủ sở hữu.</p>
+          <a class="btn btn-outline btn-block" href="host-bookings.html">Quay lại danh sách</a>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="site-footer">ODauDay Stay · Bài tập lớn OOAD · Prototype giao diện, dữ liệu tĩnh trong trang.</footer>
+  <script src="assets/js/ui.js"></script>
+</body>
+</html>

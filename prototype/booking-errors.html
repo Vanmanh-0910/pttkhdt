@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ODauDay Stay — Lỗi đặt phòng (UC-03 / TC-05, TC-06)</title>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  <div class="proto-flag">PROTOTYPE — dữ liệu tĩnh, không có backend/CSDL. Dùng để minh hoạ giao diện theo Use Case.</div>
+
+  <header class="site-header">
+    <div class="bar">
+      <a class="brand" href="index.html">ODauDay Stay <span>· cho thuê homestay</span></a>
+      <nav class="nav" aria-label="Điều hướng khách thuê">
+        <a href="index.html">Trang chủ</a>
+        <a href="search-results.html">Tìm kiếm</a>
+        <a href="my-bookings.html">Đơn của tôi</a>
+        <a href="login.html">Đăng nhập</a>
+      </nav>
+      <div class="role-switch"><span>Vai trò:</span>
+        <a href="index.html" class="active">Khách</a>
+        <a href="host-properties.html">Chủ nhà</a>
+        <a href="admin-users.html">Quản trị</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <span class="uc-tag">UC-03 · Đặt phòng — luồng ngoại lệ</span>
+    <h1 class="page-title">Không thể tạo đơn</h1>
+    <p class="page-sub">Hai trường hợp lỗi khi đặt phòng. Chuyển bằng <code>?state=</code>.</p>
+
+    <div class="btn-group" style="margin-bottom:1rem;">
+      <a class="btn btn-outline btn-sm" data-goto-state="conflict" href="#">Xung đột lịch (TC-05)</a>
+      <a class="btn btn-outline btn-sm" data-goto-state="capacity" href="#">Vượt sức chứa (TC-06)</a>
+    </div>
+
+    <section class="panel" style="max-width:560px;">
+      <div class="alert alert-error" role="alert" data-state="conflict default" >
+        <strong>Phòng đã có người đặt (TC-05)</strong>
+        Khoảng ngày bạn chọn vừa được giữ bởi một đơn khác hoặc trùng lịch bảo trì. Đơn không được tạo. Vui lòng chọn ngày hoặc phòng khác.
+      </div>
+      <div class="alert alert-error" role="alert" data-state="capacity" hidden>
+        <strong>Vượt sức chứa phòng (TC-06)</strong>
+        Phòng Garden chỉ nhận tối đa 2 khách. Bạn đang đặt cho 3 khách. Vui lòng giảm số khách hoặc chọn phòng lớn hơn.
+      </div>
+
+      <table>
+        <tbody>
+          <tr><th>Phòng</th><td>ODauDay Stay Hồ Tây · Phòng Garden</td></tr>
+          <tr><th>Thời gian</th><td>10/01/2027 → 12/01/2027</td></tr>
+          <tr data-state="capacity" hidden><th>Số khách</th><td>3 người (tối đa 2)</td></tr>
+        </tbody>
+      </table>
+      <div class="btn-group" style="margin-top:1rem;">
+        <a class="btn btn-primary" href="search-results.html">Chọn phòng khác</a>
+        <a class="btn btn-outline" href="booking-quote.html">Sửa thông tin đặt</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">ODauDay Stay · Bài tập lớn OOAD · Prototype giao diện, dữ liệu tĩnh trong trang.</footer>
+  <script src="assets/js/ui.js"></script>
+</body>
+</html>

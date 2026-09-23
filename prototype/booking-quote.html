@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ODauDay Stay — Báo giá đặt phòng (UC-03 / TC-04)</title>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  <div class="proto-flag">PROTOTYPE — dữ liệu tĩnh, không có backend/CSDL. Dùng để minh hoạ giao diện theo Use Case.</div>
+
+  <header class="site-header">
+    <div class="bar">
+      <a class="brand" href="index.html">ODauDay Stay <span>· cho thuê homestay</span></a>
+      <nav class="nav" aria-label="Điều hướng khách thuê">
+        <a href="index.html">Trang chủ</a>
+        <a href="search-results.html">Tìm kiếm</a>
+        <a href="my-bookings.html">Đơn của tôi</a>
+        <a href="login.html">Đăng nhập</a>
+      </nav>
+      <div class="role-switch"><span>Vai trò:</span>
+        <a href="index.html" class="active">Khách</a>
+        <a href="host-properties.html">Chủ nhà</a>
+        <a href="admin-users.html">Quản trị</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <p class="breadcrumb"><a href="property-detail.html">ODauDay Stay Hồ Tây</a> › Đặt phòng</p>
+    <span class="uc-tag">UC-03 · Đặt phòng</span>
+    <h1 class="page-title">Xác nhận thông tin đặt phòng</h1>
+    <div class="steps">
+      <span class="step current">1. Báo giá</span><span class="sep">›</span>
+      <span class="step">2. Xác nhận</span><span class="sep">›</span>
+      <span class="step">3. Hoàn tất</span>
+    </div>
+
+    <div class="layout-side">
+      <section class="panel">
+        <h2>Thông tin lưu trú</h2>
+        <div class="row">
+          <div class="field"><label for="in">Ngày đến</label><input id="in" type="date" value="2027-01-10" /></div>
+          <div class="field"><label for="out">Ngày đi</label><input id="out" type="date" value="2027-01-12" /></div>
+        </div>
+        <div class="row">
+          <div class="field"><label for="ad">Người lớn</label><input id="ad" type="number" min="1" value="2" /></div>
+          <div class="field"><label for="ch">Trẻ em</label><input id="ch" type="number" min="0" value="0" /></div>
+        </div>
+        <p class="muted">Phòng Garden · sức chứa tối đa 2 khách.</p>
+      </section>
+
+      <aside class="panel">
+        <h3>Chi tiết giá</h3>
+        <div class="summary-line"><span>650.000đ × 2 đêm</span><span>1.300.000đ</span></div>
+        <div class="summary-line"><span>Phí dịch vụ</span><span>0đ</span></div>
+        <div class="summary-total"><span>Tổng cộng</span><span>1.300.000đ</span></div>
+        <p class="muted">Giá được cố định tại thời điểm đặt (price snapshot).</p>
+        <a class="btn btn-primary btn-block" href="booking-success.html">Xác nhận đặt phòng</a>
+        <a class="btn btn-outline btn-block" href="booking-errors.html?state=conflict" style="margin-top:0.5rem;">Xem trạng thái lỗi</a>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="site-footer">ODauDay Stay · Bài tập lớn OOAD · Prototype giao diện, dữ liệu tĩnh trong trang.</footer>
+  <script src="assets/js/ui.js"></script>
+</body>
+</html>

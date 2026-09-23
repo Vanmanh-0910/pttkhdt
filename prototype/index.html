@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ODauDay Stay — Trang chủ (UC-02)</title>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  <div class="proto-flag">PROTOTYPE — dữ liệu tĩnh, không có backend/CSDL. Dùng để minh hoạ giao diện theo Use Case.</div>
+
+  <header class="site-header">
+    <div class="bar">
+      <a class="brand" href="index.html">ODauDay Stay <span>· cho thuê homestay</span></a>
+      <nav class="nav" aria-label="Điều hướng khách thuê">
+        <a href="index.html">Trang chủ</a>
+        <a href="search-results.html">Tìm kiếm</a>
+        <a href="my-bookings.html">Đơn của tôi</a>
+        <a href="login.html">Đăng nhập</a>
+      </nav>
+      <div class="role-switch" aria-label="Chuyển vai trò để xem màn hình">
+        <span>Vai trò:</span>
+        <a href="index.html" class="active">Khách</a>
+        <a href="host-properties.html">Chủ nhà</a>
+        <a href="admin-users.html">Quản trị</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <span class="uc-tag">UC-02 · Tìm kiếm và xem chỗ ở</span>
+    <h1 class="page-title">Tìm chỗ ở phù hợp với chuyến đi của bạn</h1>
+    <p class="page-sub">Nhập tiêu chí tìm kiếm để xem các phòng còn trống. Hệ thống loại các phòng đã có đơn giữ chỗ hoặc đang bảo trì trong khoảng ngày bạn chọn.</p>
+
+    <section class="panel" aria-label="Bộ lọc tìm kiếm">
+      <form action="search-results.html" method="get">
+        <div class="row-3">
+          <div class="field">
+            <label for="kw">Từ khoá / địa chỉ</label>
+            <input id="kw" name="kw" type="text" placeholder="Ví dụ: Hồ Tây, Hà Nội" value="Hồ Tây" />
+          </div>
+          <div class="field">
+            <label for="type">Loại nhà</label>
+            <select id="type" name="type">
+              <option>Tất cả</option>
+              <option selected>Homestay</option>
+              <option>Căn hộ</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="guests">Số khách</label>
+            <input id="guests" name="guests" type="number" min="1" value="2" />
+          </div>
+        </div>
+        <div class="row-3">
+          <div class="field">
+            <label for="in">Ngày đến</label>
+            <input id="in" name="in" type="date" value="2027-01-10" />
+          </div>
+          <div class="field">
+            <label for="out">Ngày đi</label>
+            <input id="out" name="out" type="date" value="2027-01-12" />
+          </div>
+          <div class="field">
+            <label for="price">Mức giá tối đa / đêm</label>
+            <select id="price" name="price">
+              <option>Không giới hạn</option>
+              <option selected>Dưới 1.500.000đ</option>
+              <option>Dưới 800.000đ</option>
+            </select>
+          </div>
+        </div>
+        <div class="btn-group">
+          <button type="submit" class="btn btn-primary">Tìm phòng</button>
+          <a class="btn btn-outline" href="search-states.html?state=invalid-date">Xem trạng thái lỗi ngày</a>
+        </div>
+      </form>
+    </section>
+
+    <h2 style="margin-top:1.8rem;">Chỗ ở nổi bật</h2>
+    <div class="grid grid-3">
+      <article class="card">
+        <div class="thumb">Ảnh nhà (placeholder)</div>
+        <div class="body">
+          <h3>ODauDay Stay Hồ Tây</h3>
+          <p class="meta">Homestay · Quận Tây Hồ, Hà Nội</p>
+          <p class="meta stars">★★★★★ <span class="muted">5.0</span></p>
+          <p class="price">từ 650.000đ <small>/ đêm</small></p>
+          <a class="btn btn-outline btn-sm" href="property-detail.html">Xem chi tiết</a>
+        </div>
+      </article>
+      <article class="card">
+        <div class="thumb">Ảnh nhà (placeholder)</div>
+        <div class="body">
+          <h3>ODauDay Stay Ba Vì</h3>
+          <p class="meta">Homestay · Ba Vì, Hà Nội</p>
+          <p class="meta stars">★★★★☆ <span class="muted">4.6</span></p>
+          <p class="price">từ 720.000đ <small>/ đêm</small></p>
+          <a class="btn btn-outline btn-sm" href="property-detail.html">Xem chi tiết</a>
+        </div>
+      </article>
+      <article class="card">
+        <div class="thumb">Ảnh nhà (placeholder)</div>
+        <div class="body">
+          <h3>ODauDay Stay Cầu Giấy</h3>
+          <p class="meta">Căn hộ · Cầu Giấy, Hà Nội</p>
+          <p class="meta stars">★★★★☆ <span class="muted">4.4</span></p>
+          <p class="price">từ 900.000đ <small>/ đêm</small></p>
+          <a class="btn btn-outline btn-sm" href="property-detail.html">Xem chi tiết</a>
+        </div>
+      </article>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    ODauDay Stay · Bài tập lớn OOAD · Prototype giao diện, dữ liệu tĩnh trong trang.
+  </footer>
+
+  <script src="assets/js/ui.js"></script>
+</body>
+</html>
