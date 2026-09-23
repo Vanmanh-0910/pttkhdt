@@ -4,78 +4,177 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ODauDay Stay — Quản lý phòng (UC-07)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 <body>
-  <div class="proto-flag">PROTOTYPE — dữ liệu tĩnh, không có backend/CSDL. Dùng để minh hoạ giao diện theo Use Case.</div>
-
-  <header class="site-header">
-    <div class="bar">
-      <a class="brand" href="index.html">ODauDay Stay <span>· khu vực chủ nhà</span></a>
-      <nav class="nav" aria-label="Điều hướng chủ nhà">
-        <a href="host-properties.html">Nhà của tôi</a>
-        <a href="host-rooms.html">Phòng</a>
-        <a href="host-bookings.html">Đơn đặt</a>
-        <a href="host-revenue.html">Doanh thu</a>
-      </nav>
-      <div class="role-switch"><span>Vai trò:</span>
-        <a href="index.html">Khách</a>
-        <a href="host-properties.html" class="active">Chủ nhà</a>
-        <a href="admin-users.html">Quản trị</a>
-      </div>
-    </div>
-  </header>
+  <div id="site-header"></div>
 
   <main>
-    <p class="breadcrumb"><a href="host-properties.html">Nhà của tôi</a> › ODauDay Stay Hồ Tây › Phòng</p>
-    <span class="uc-tag">UC-07 · Quản lý phòng và lịch chặn</span>
-    <h1 class="page-title">Phòng của ODauDay Stay Hồ Tây</h1>
+    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.75rem;margin-bottom:0.75rem;">
+      <p class="breadcrumb mb-0">
+        <a href="host-properties.html"><i class="bi bi-building"></i> Nhà của tôi</a>
+        <i class="bi bi-chevron-right" style="font-size:0.7rem;color:var(--subtle);"></i>
+        <a href="host-properties.html">ODauDay Stay Hồ Tây</a>
+        <i class="bi bi-chevron-right" style="font-size:0.7rem;color:var(--subtle);"></i>
+        <span>Quản lý phòng & bảng giá</span>
+      </p>
+      <span class="uc-tag"><i class="bi bi-diagram-3"></i> UC-07 · Quản lý phòng và lịch chặn</span>
+    </div>
+
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:1rem;margin-bottom:1.5rem;">
+      <div>
+        <h1 class="page-title" style="margin:0 0 0.4rem;">Danh sách hạng phòng · ODauDay Stay Hồ Tây</h1>
+        <p class="page-sub" style="margin:0;">
+          Quản lý sức chứa tối đa (BR-02), đơn giá niêm yết mỗi đêm và kích hoạt các khoảng chặn bảo trì kỹ thuật (RoomBlock).
+        </p>
+      </div>
+      <a class="btn btn-primary" href="#roomform">
+        <i class="bi bi-plus-lg"></i> Thêm hạng phòng mới
+      </a>
+    </div>
 
     <div class="layout-side">
+      <!-- Left Column: Rooms Table -->
       <section class="panel">
-        <div style="display:flex;justify-content:space-between;align-items:center;">
-          <h2 class="mb-0">Danh sách phòng</h2>
-          <a class="btn btn-primary btn-sm" href="#roomform">+ Thêm phòng</a>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;border-bottom:1px solid var(--line);padding-bottom:0.75rem;">
+          <h2 class="mb-0" style="font-size:1.2rem;display:flex;align-items:center;gap:0.5rem;">
+            <i class="bi bi-door-closed text-brand"></i> Các hạng phòng đang vận hành (2)
+          </h2>
+          <span class="muted" style="font-size:0.82rem;">Đồng bộ thời gian thực</span>
         </div>
-        <div class="divider"></div>
+
         <table>
-          <thead><tr><th>Phòng</th><th>Sức chứa</th><th>Giá/đêm</th><th>Trạng thái</th><th></th></tr></thead>
-          <tbody>
+          <thead>
             <tr>
-              <td><strong>Phòng Garden</strong></td>
-              <td>2</td>
-              <td class="price">650.000đ</td>
-              <td><span class="badge badge-active">ACTIVE</span></td>
-              <td><a class="btn btn-outline btn-sm" href="host-roomblock.html">Chặn lịch</a></td>
+              <th>Hạng phòng</th>
+              <th>Sức chứa</th>
+              <th>Đơn giá / đêm</th>
+              <th>Trạng thái nhận khách</th>
+              <th style="text-align:right;">Thao tác</th>
             </tr>
+          </thead>
+          <tbody>
+            <!-- Room 1: Active -->
             <tr>
-              <td><strong>Phòng Family</strong></td>
-              <td>4</td>
-              <td class="price">1.100.000đ</td>
-              <td><span class="badge badge-locked">MAINTENANCE</span></td>
-              <td><a class="btn btn-outline btn-sm" href="host-roomblock.html">Chặn lịch</a></td>
+              <td>
+                <div style="display:flex;align-items:center;gap:0.75rem;">
+                  <div style="width:48px;height:48px;border-radius:8px;background-image:url('https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=120&q=80');background-size:cover;flex-shrink:0;"></div>
+                  <div>
+                    <strong style="color:var(--ink);display:block;">Phòng Garden</strong>
+                    <span class="muted" style="font-size:0.78rem;">Giường Queen · View sân vườn</span>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <span class="badge" style="background:#f1f5f9;color:var(--ink-secondary);font-weight:600;">
+                  <i class="bi bi-people-fill"></i> 2 người
+                </span>
+              </td>
+              <td>
+                <p class="price" style="margin:0;font-size:1.05rem;">650.000đ <small>/ đêm</small></p>
+              </td>
+              <td>
+                <span class="badge badge-active">
+                  <i class="bi bi-check-circle-fill"></i> ACTIVE
+                </span>
+              </td>
+              <td style="text-align:right;">
+                <div class="btn-group" style="justify-content:flex-end;">
+                  <a class="btn btn-outline btn-sm" href="host-roomblock.html">
+                    <i class="bi bi-calendar-range"></i> Chặn lịch (RoomBlock)
+                  </a>
+                </div>
+              </td>
+            </tr>
+
+            <!-- Room 2: Under Maintenance -->
+            <tr>
+              <td>
+                <div style="display:flex;align-items:center;gap:0.75rem;">
+                  <div style="width:48px;height:48px;border-radius:8px;background-image:url('https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=120&q=80');background-size:cover;flex-shrink:0;"></div>
+                  <div>
+                    <strong style="color:var(--ink);display:block;">Phòng Family</strong>
+                    <span class="muted" style="font-size:0.78rem;">2 Giường King · Ban công lớn</span>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <span class="badge" style="background:#f1f5f9;color:var(--ink-secondary);font-weight:600;">
+                  <i class="bi bi-people-fill"></i> 4 người
+                </span>
+              </td>
+              <td>
+                <p class="price" style="margin:0;font-size:1.05rem;">1.100.000đ <small>/ đêm</small></p>
+              </td>
+              <td>
+                <span class="badge badge-locked" style="background:#dc2626;color:#fff;">
+                  <i class="bi bi-tools"></i> MAINTENANCE
+                </span>
+              </td>
+              <td style="text-align:right;">
+                <div class="btn-group" style="justify-content:flex-end;">
+                  <a class="btn btn-outline btn-sm" href="host-roomblock.html">
+                    <i class="bi bi-calendar-range"></i> Chặn lịch (RoomBlock)
+                  </a>
+                </div>
+              </td>
             </tr>
           </tbody>
         </table>
+
+        <!-- Note on Capacity rule -->
+        <div style="background:#f8fafc;padding:1rem;border-radius:10px;border:1px dashed var(--line);margin-top:1.5rem;">
+          <p class="muted" style="margin:0;font-size:0.85rem;line-height:1.6;">
+            💡 <strong>Quy định sức chứa (BR-02):</strong> Số lượng khách tối đa được dùng để kiểm tra tự động khi khách tìm kiếm hoặc đặt phòng (<code>adults + children &lt;= capacity</code>).
+          </p>
+        </div>
       </section>
 
-      <aside class="panel" id="roomform">
-        <h3>Thêm / sửa phòng</h3>
-        <div class="field"><label for="rname">Tên phòng</label><input id="rname" value="Phòng Garden" /></div>
+      <!-- Right Column: Add / Update Room Form -->
+      <aside class="panel" id="roomform" style="height:fit-content;">
+        <h3 style="border-bottom:1px solid var(--line);padding-bottom:0.6rem;margin-bottom:1rem;font-size:1.15rem;display:flex;align-items:center;gap:0.4rem;">
+          <i class="bi bi-sliders text-brand"></i> Thêm / Cập nhật phòng
+        </h3>
+        
+        <div class="field">
+          <label for="rname"><i class="bi bi-door-open"></i> Tên hạng phòng *</label>
+          <input id="rname" value="Phòng Garden" required />
+        </div>
+        
         <div class="row">
-          <div class="field"><label for="cap">Sức chứa</label><input id="cap" type="number" min="1" value="2" /></div>
-          <div class="field"><label for="price">Giá/đêm (đ)</label><input id="price" type="number" min="1" value="650000" /></div>
+          <div class="field">
+            <label for="cap"><i class="bi bi-people"></i> Sức chứa (Khách) *</label>
+            <input id="cap" type="number" min="1" max="10" value="2" required />
+          </div>
+          <div class="field">
+            <label for="price"><i class="bi bi-cash"></i> Giá / đêm (VNĐ) *</label>
+            <input id="price" type="number" min="1" step="10000" value="650000" required />
+          </div>
         </div>
-        <div class="field"><label for="rstatus">Trạng thái</label>
-          <select id="rstatus"><option selected>ACTIVE</option><option>INACTIVE</option><option>MAINTENANCE</option></select>
+
+        <div class="field">
+          <label for="rstatus"><i class="bi bi-activity"></i> Trạng thái phòng *</label>
+          <select id="rstatus">
+            <option selected>ACTIVE (Sẵn sàng tiếp nhận khách)</option>
+            <option>MAINTENANCE (Đang bảo trì kỹ thuật)</option>
+            <option>INACTIVE (Tạm ngưng cung cấp)</option>
+          </select>
         </div>
-        <p class="hint muted">Giá và sức chứa phải là số dương (BR-02).</p>
-        <button class="btn btn-primary btn-block">Lưu phòng</button>
+
+        <button class="btn btn-primary btn-block" style="margin-top:1.25rem;padding:0.75rem;">
+          <i class="bi bi-check2"></i> Lưu cấu hình phòng
+        </button>
       </aside>
     </div>
   </main>
 
-  <footer class="site-footer">ODauDay Stay · Bài tập lớn OOAD · Prototype giao diện, dữ liệu tĩnh trong trang.</footer>
+  <div id="site-footer"></div>
+
+  <script src="assets/js/layout.js"></script>
   <script src="assets/js/ui.js"></script>
 </body>
 </html>

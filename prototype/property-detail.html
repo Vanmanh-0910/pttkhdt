@@ -3,95 +3,290 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ODauDay Stay — Chi tiết nhà (UC-02)</title>
+  <title>ODauDay Stay — Chi tiết chỗ ở & Lựa chọn phòng (UC-02)</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
   <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 <body>
-  <div class="proto-flag">PROTOTYPE — dữ liệu tĩnh, không có backend/CSDL. Dùng để minh hoạ giao diện theo Use Case.</div>
-
-  <header class="site-header">
-    <div class="bar">
-      <a class="brand" href="index.html">ODauDay Stay <span>· cho thuê homestay</span></a>
-      <nav class="nav" aria-label="Điều hướng khách thuê">
-        <a href="index.html">Trang chủ</a>
-        <a href="search-results.html">Tìm kiếm</a>
-        <a href="my-bookings.html">Đơn của tôi</a>
-        <a href="login.html">Đăng nhập</a>
-      </nav>
-      <div class="role-switch" aria-label="Chuyển vai trò để xem màn hình">
-        <span>Vai trò:</span>
-        <a href="index.html" class="active">Khách</a>
-        <a href="host-properties.html">Chủ nhà</a>
-        <a href="admin-users.html">Quản trị</a>
-      </div>
-    </div>
-  </header>
+  <div id="site-header"></div>
 
   <main>
-    <p class="breadcrumb"><a href="index.html">Trang chủ</a> › <a href="search-results.html">Kết quả</a> › ODauDay Stay Hồ Tây</p>
-    <span class="uc-tag">UC-02 · Tìm kiếm và xem chỗ ở</span>
-    <h1 class="page-title">ODauDay Stay Hồ Tây</h1>
-    <p class="page-sub">Homestay · Quận Tây Hồ, Hà Nội · <span class="stars">★★★★★</span> 5.0 (1 đánh giá)</p>
-
-    <div class="grid grid-3" style="margin-bottom:1.3rem;">
-      <div class="thumb" style="height:180px;border-radius:10px;">Ảnh 1 (placeholder)</div>
-      <div class="thumb" style="height:180px;border-radius:10px;">Ảnh 2 (placeholder)</div>
-      <div class="thumb" style="height:180px;border-radius:10px;">Ảnh 3 (placeholder)</div>
+    <p class="breadcrumb">
+      <a href="index.html">Trang chủ</a> › <a href="search-results.html">Hà Nội</a> › ODauDay Stay Hồ Tây
+    </p>
+    <span class="uc-tag"><i class="bi bi-compass"></i> UC-02 · Xem chi tiết chỗ ở & phòng</span>
+    
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:1.5rem;margin-bottom:1rem;">
+      <div>
+        <h1 class="page-title" style="margin-bottom:0.4rem;">ODauDay Stay Hồ Tây</h1>
+        <p class="page-sub" style="margin-bottom:0;">
+          <i class="bi bi-geo-alt-fill text-danger"></i> <strong>Quận Tây Hồ, Hà Nội</strong> · 
+          <span class="stars">★★★★★</span> <strong>5.0</strong> <span class="muted">(1 đánh giá xác thực sau lưu trú)</span> · 
+          <span class="badge badge-completed"><i class="bi bi-patch-check-fill"></i> Homestay đã kiểm duyệt</span>
+        </p>
+      </div>
+      <div class="btn-group">
+        <button class="btn btn-outline btn-sm"><i class="bi bi-heart"></i> Lưu yêu thích</button>
+        <button class="btn btn-outline btn-sm"><i class="bi bi-share"></i> Chia sẻ chỗ ở</button>
+      </div>
     </div>
 
+    <!-- 5-Photo Airbnb-Style Collage Gallery -->
+    <div class="gallery-collage">
+      <div class="collage-item-main" style="background-image:linear-gradient(to top, rgba(0,0,0,0.65) 0%, transparent 60%), url('https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1000&q=80');">
+        <span style="position:absolute;bottom:1.25rem;left:1.5rem;color:#fff;font-weight:700;font-size:1.1rem;text-shadow:0 2px 4px rgba(0,0,0,0.8);">
+          Mặt trước nhà & Khu vườn xanh mát
+        </span>
+      </div>
+      <div class="collage-item" style="background-image:url('https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=600&q=80');">
+        <span style="position:absolute;bottom:0.75rem;left:1rem;color:#fff;font-weight:600;font-size:0.85rem;text-shadow:0 2px 4px rgba(0,0,0,0.8);">
+          Phòng ngủ Garden
+        </span>
+      </div>
+      <div class="collage-item" style="background-image:url('https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&w=600&q=80');">
+        <span style="position:absolute;bottom:0.75rem;left:1rem;color:#fff;font-weight:600;font-size:0.85rem;text-shadow:0 2px 4px rgba(0,0,0,0.8);">
+          Góc thư giãn ban công
+        </span>
+      </div>
+      <div class="collage-item" style="background-image:url('https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=600&q=80');">
+        <span style="position:absolute;bottom:0.75rem;left:1rem;color:#fff;font-weight:600;font-size:0.85rem;text-shadow:0 2px 4px rgba(0,0,0,0.8);">
+          Phòng sinh hoạt chung
+        </span>
+      </div>
+      <div class="collage-item" style="background-image:url('https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=600&q=80');">
+        <span style="position:absolute;bottom:0.75rem;left:1rem;color:#fff;font-weight:600;font-size:0.85rem;text-shadow:0 2px 4px rgba(0,0,0,0.8);">
+          Khu bếp đầy đủ tiện nghi
+        </span>
+      </div>
+    </div>
+
+    <!-- Layout Side: Main Content + Sticky Booking Widget -->
     <div class="layout-side">
       <div>
+        <!-- Host Bio & Property Highlights -->
         <section class="panel">
-          <h2>Giới thiệu</h2>
-          <p>Không gian yên tĩnh, phù hợp nhóm nhỏ. Gần Hồ Tây, thuận tiện di chuyển vào trung tâm.</p>
+          <div style="display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);padding-bottom:1.5rem;margin-bottom:1.5rem;flex-wrap:wrap;gap:1rem;">
+            <div style="display:flex;align-items:center;gap:1.25rem;">
+              <div style="width:58px;height:58px;border-radius:50%;background:var(--brand-gradient);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:1.35rem;box-shadow:var(--brand-glow);">
+                HD
+              </div>
+              <div>
+                <h3 style="margin:0;font-size:1.25rem;display:flex;align-items:center;gap:0.5rem;">
+                  Chủ nhà: <code>host.demo</code> <span class="badge badge-active"><i class="bi bi-star-fill"></i> Siêu chủ nhà</span>
+                </h3>
+                <p class="muted" style="margin:0.25rem 0 0;font-size:0.9rem;">
+                  Tham gia từ năm 2026 · Tỉ lệ phản hồi 100% (trong vòng 1 giờ)
+                </p>
+              </div>
+            </div>
+            <div>
+              <span class="badge" style="background:#f1f5f9;color:#334155;padding:0.4rem 0.85rem;">
+                <i class="bi bi-shield-check text-success"></i> Danh tính đã xác minh
+              </span>
+            </div>
+          </div>
+
+          <h2>Mô tả cơ sở lưu trú</h2>
+          <p style="color:var(--ink-secondary);font-size:1.02rem;line-height:1.75;margin:0 0 1.5rem;">
+            Không gian yên tĩnh, hòa hợp cùng thiên nhiên và phù hợp cho các cặp đôi hoặc nhóm nhỏ nghỉ ngơi cuối tuần. Cơ sở tọa lạc tại vị trí đắc địa ven Hồ Tây, không khí trong lành, thuận tiện tản bộ ngắm hoàng hôn và di chuyển chỉ 15 phút vào trung tâm phố cổ Hà Nội.
+          </p>
+
+          <h3>Tiện ích nổi bật được cung cấp</h3>
+          <div class="grid grid-3" style="margin-top:1rem;gap:1rem;">
+            <div style="display:flex;align-items:center;gap:0.75rem;padding:0.75rem;background:#f8fafc;border-radius:10px;">
+              <i class="bi bi-wifi text-primary" style="font-size:1.35rem;"></i>
+              <div><strong>Wifi tốc độ cao</strong><span class="muted" style="font-size:0.8rem;display:block;">Băng thông 500Mbps</span></div>
+            </div>
+            <div style="display:flex;align-items:center;gap:0.75rem;padding:0.75rem;background:#f8fafc;border-radius:10px;">
+              <i class="bi bi-snow text-info" style="font-size:1.35rem;"></i>
+              <div><strong>Điều hòa Inverter</strong><span class="muted" style="font-size:0.8rem;display:block;">2 chiều làm lạnh/ấm</span></div>
+            </div>
+            <div style="display:flex;align-items:center;gap:0.75rem;padding:0.75rem;background:#f8fafc;border-radius:10px;">
+              <i class="bi bi-cup-hot text-danger" style="font-size:1.35rem;"></i>
+              <div><strong>Bếp nấu riêng</strong><span class="muted" style="font-size:0.8rem;display:block;">Gia vị & nồi niêu cơ bản</span></div>
+            </div>
+            <div style="display:flex;align-items:center;gap:0.75rem;padding:0.75rem;background:#f8fafc;border-radius:10px;">
+              <i class="bi bi-p-square text-success" style="font-size:1.35rem;"></i>
+              <div><strong>Chỗ đỗ xe ô tô</strong><span class="muted" style="font-size:0.8rem;display:block;">Miễn phí trong khuôn viên</span></div>
+            </div>
+            <div style="display:flex;align-items:center;gap:0.75rem;padding:0.75rem;background:#f8fafc;border-radius:10px;">
+              <i class="bi bi-key-fill text-warning" style="font-size:1.35rem;"></i>
+              <div><strong>Tự nhận phòng</strong><span class="muted" style="font-size:0.8rem;display:block;">Khóa cửa mật mã thông minh</span></div>
+            </div>
+            <div style="display:flex;align-items:center;gap:0.75rem;padding:0.75rem;background:#f8fafc;border-radius:10px;">
+              <i class="bi bi-tv text-dark" style="font-size:1.35rem;"></i>
+              <div><strong>Smart TV 55"</strong><span class="muted" style="font-size:0.8rem;display:block;">Netflix & Youtube có sẵn</span></div>
+            </div>
+          </div>
         </section>
 
-        <section class="panel" style="margin-top:1.1rem;">
-          <h2>Các phòng</h2>
+        <!-- Room Options Table -->
+        <section class="panel" style="margin-top:2rem;">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.75rem;">
+            <h2 style="margin:0;">Các phòng khả dụng trong cơ sở</h2>
+            <span class="badge badge-active"><i class="bi bi-lightning-charge"></i> Cập nhật thời gian thực</span>
+          </div>
+
           <table>
             <thead>
-              <tr><th>Phòng</th><th>Sức chứa</th><th>Giá/đêm</th><th>Trạng thái</th><th></th></tr>
+              <tr>
+                <th>Hạng phòng</th>
+                <th>Sức chứa</th>
+                <th>Giá niêm yết</th>
+                <th>Tình trạng</th>
+                <th style="text-align:right;">Thao tác</th>
+              </tr>
             </thead>
             <tbody>
               <tr>
-                <td>Phòng Garden</td>
-                <td>2 khách</td>
-                <td class="price">650.000đ</td>
-                <td><span class="badge badge-active">Còn trống</span></td>
-                <td><a class="btn btn-primary btn-sm" href="booking-quote.html">Đặt phòng</a></td>
+                <td>
+                  <strong>Phòng Garden</strong><br />
+                  <span class="muted" style="font-size:0.84rem;">1 giường đôi Queen · View vườn xanh mát</span>
+                </td>
+                <td><i class="bi bi-people"></i> 2 khách</td>
+                <td class="price" style="margin:0;color:var(--brand);">650.000đ <small>/ đêm</small></td>
+                <td><span class="badge badge-active">Còn phòng</span></td>
+                <td style="text-align:right;">
+                  <a class="btn btn-primary btn-sm" href="booking-quote.html">
+                    <i class="bi bi-bookmark-check"></i> Đặt phòng này
+                  </a>
+                </td>
               </tr>
               <tr>
-                <td>Phòng Family</td>
-                <td>4 khách</td>
-                <td class="price">1.100.000đ</td>
+                <td>
+                  <strong>Phòng Family</strong><br />
+                  <span class="muted" style="font-size:0.84rem;">2 giường King · Ban công lớn</span>
+                </td>
+                <td><i class="bi bi-people"></i> 4 khách</td>
+                <td class="price" style="margin:0;color:var(--muted);">1.100.000đ <small>/ đêm</small></td>
                 <td><span class="badge badge-locked">Bảo trì 10–12/02</span></td>
-                <td><button class="btn btn-outline btn-sm" disabled>Không thể đặt</button></td>
+                <td style="text-align:right;">
+                  <button class="btn btn-outline btn-sm" disabled>Tạm dừng nhận</button>
+                </td>
               </tr>
             </tbody>
           </table>
+
+          <div style="background:#f8fafc;padding:0.9rem 1.15rem;border-radius:10px;border:1px dashed var(--line);margin-top:1rem;">
+            <p class="muted" style="margin:0;font-size:0.85rem;">
+              ℹ <em>Theo quy tắc BR-03:</em> Hệ thống tự động khóa Phòng Family do trùng lịch bảo trì của chủ nhà (<code>RoomBlock</code>).
+            </p>
+          </div>
         </section>
 
-        <section class="panel" style="margin-top:1.1rem;">
-          <h2>Đánh giá</h2>
+        <!-- House Rules & Policies -->
+        <section class="panel" style="margin-top:2rem;">
+          <h2>Nội quy chỗ ở & Chính sách hủy phòng</h2>
+          <div class="row" style="margin-top:1rem;">
+            <div style="padding:1rem;background:#f8fafc;border-radius:12px;border:1px solid var(--line);">
+              <h4 style="margin:0 0 0.5rem;font-size:0.95rem;color:var(--ink);"><i class="bi bi-clock"></i> Thời gian lưu trú</h4>
+              <ul style="margin:0;padding-left:1.25rem;color:var(--muted);font-size:0.88rem;line-height:1.7;">
+                <li>Nhận phòng: Từ <strong>14:00</strong> chiều</li>
+                <li>Trả phòng: Trước <strong>12:00</strong> trưa hôm sau</li>
+                <li>Tự nhận phòng bằng mã khóa số bảo mật</li>
+              </ul>
+            </div>
+            <div style="padding:1rem;background:#f8fafc;border-radius:12px;border:1px solid var(--line);">
+              <h4 style="margin:0 0 0.5rem;font-size:0.95rem;color:var(--ink);"><i class="bi bi-shield-x"></i> Quy định chung</h4>
+              <ul style="margin:0;padding-left:1.25rem;color:var(--muted);font-size:0.88rem;line-height:1.7;">
+                <li>Không hút thuốc lá trong phòng ngủ</li>
+                <li>Giữ yên tĩnh sau 22:00 đêm</li>
+                <li>Không cho phép mang theo thú cưng</li>
+              </ul>
+            </div>
+          </div>
+
+          <div style="margin-top:1.25rem;padding:1rem;border-radius:10px;background:var(--ok-soft);border:1px solid var(--ok-border);">
+            <strong style="color:var(--ok);display:block;margin-bottom:0.25rem;"><i class="bi bi-shield-check"></i> Chính sách hủy phòng linh hoạt (BR-10):</strong>
+            <p class="muted" style="color:#065f46;margin:0;font-size:0.88rem;line-height:1.6;">
+              Khách có thể chủ động hủy miễn phí đơn hàng khi đơn còn ở trạng thái <code>PENDING</code> hoặc <code>CONFIRMED</code> trước hạn quy định. Sau khi đã nhận phòng (<code>CHECKED_IN</code>), quyền hủy sẽ bị chặn trên hệ thống.
+            </p>
+          </div>
+        </section>
+
+        <!-- Customer Reviews -->
+        <section class="panel" style="margin-top:2rem;">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;">
+            <h2 style="margin:0;">Đánh giá từ khách đã lưu trú</h2>
+            <span class="stars" style="font-size:1.25rem;">★ 5.0 (1 đánh giá)</span>
+          </div>
+
           <div class="divider"></div>
-          <p class="stars mb-0">★★★★★</p>
-          <p class="mt-0"><strong>Khách thuê Demo</strong> · đơn ODD-DEMO-0001</p>
-          <p class="muted">“Phòng sạch và chủ nhà hỗ trợ tốt.”</p>
+
+          <div style="background:#f8fafc;padding:1.35rem;border-radius:14px;border:1px solid var(--line);">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:0.75rem;">
+              <div style="display:flex;align-items:center;gap:0.85rem;">
+                <div style="width:42px;height:42px;border-radius:50%;background:#e2e8f0;display:flex;align-items:center;justify-content:center;font-weight:700;color:#334155;">
+                  KD
+                </div>
+                <div>
+                  <strong style="color:var(--ink);font-size:1rem;">Khách thuê Demo</strong>
+                  <span class="muted" style="font-size:0.82rem;display:block;">
+                    Đơn lưu trú: <code>ODD-DEMO-0001</code> · Tháng 01/2027 · <span class="badge badge-completed"><i class="bi bi-check"></i> Đã hoàn thành lưu trú</span>
+                  </span>
+                </div>
+              </div>
+              <span class="stars">★★★★★</span>
+            </div>
+            <p style="margin:0;color:var(--ink-secondary);font-size:1rem;line-height:1.6;font-style:italic;">
+              “Phòng sạch sẽ, không gian thoáng đãng mát mẻ, chủ nhà hỗ trợ check-in rất nhanh chóng và nhiệt tình. Vị trí đi bộ ra bờ hồ Tây rất gần. Rất hài lòng!”
+            </p>
+          </div>
         </section>
       </div>
 
-      <aside class="panel" aria-label="Tóm tắt đặt phòng">
-        <h3>Đặt nhanh</h3>
-        <p class="price" style="font-size:1.3rem;">650.000đ <small>/ đêm</small></p>
-        <div class="field"><label>Ngày đến</label><input type="date" value="2027-01-10" /></div>
-        <div class="field"><label>Ngày đi</label><input type="date" value="2027-01-12" /></div>
-        <div class="field"><label>Số khách</label><input type="number" min="1" value="2" /></div>
-        <a class="btn btn-primary btn-block" href="booking-quote.html">Tiếp tục đặt phòng</a>
+      <!-- Sticky Booking Widget -->
+      <aside class="panel" aria-label="Tóm tắt đặt phòng" style="position:sticky;top:90px;">
+        <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:0.5rem;">
+          <span class="price" style="font-size:1.65rem;margin:0;color:var(--brand);">
+            650.000đ <small>/ đêm</small>
+          </span>
+          <span class="stars" style="font-size:0.95rem;">★ 5.0</span>
+        </div>
+        <p class="muted" style="font-size:0.84rem;margin:0 0 1.25rem;">Giá cam kết cố định Snapshot · Không phí ẩn</p>
+
+        <div style="background:#f8fafc;padding:1.15rem;border-radius:12px;border:1px solid var(--line);margin-bottom:1.25rem;">
+          <div class="field">
+            <label><i class="bi bi-calendar-check"></i> Ngày nhận phòng</label>
+            <input type="date" value="2027-01-10" />
+          </div>
+          <div class="field">
+            <label><i class="bi bi-calendar-x"></i> Ngày trả phòng</label>
+            <input type="date" value="2027-01-12" />
+          </div>
+          <div class="field" style="margin-bottom:0;">
+            <label><i class="bi bi-people"></i> Số khách lưu trú</label>
+            <input type="number" min="1" value="2" />
+          </div>
+        </div>
+
+        <div style="border-top:1px dashed var(--line);padding-top:1rem;margin-bottom:1.25rem;">
+          <div class="summary-line">
+            <span>650.000đ × 2 đêm</span>
+            <span>1.300.000đ</span>
+          </div>
+          <div class="summary-line">
+            <span>Phí dịch vụ nền tảng</span>
+            <span class="text-success font-weight-bold">0đ (Khuyến mãi)</span>
+          </div>
+          <div class="summary-total">
+            <span>Tạm tính</span>
+            <span style="color:var(--brand);font-size:1.35rem;">1.300.000đ</span>
+          </div>
+        </div>
+
+        <a class="btn btn-primary btn-block" href="booking-quote.html" style="padding:0.9rem;font-size:1.05rem;">
+          <i class="bi bi-check2-circle"></i> Tiếp tục đặt phòng này
+        </a>
+        <p class="muted" style="text-align:center;font-size:0.82rem;margin:0.85rem 0 0;">
+          <i class="bi bi-shield-lock"></i> Chưa trừ tiền ở bước này · Hoàn hủy linh hoạt
+        </p>
       </aside>
     </div>
   </main>
 
-  <footer class="site-footer">ODauDay Stay · Bài tập lớn OOAD · Prototype giao diện, dữ liệu tĩnh trong trang.</footer>
+  <div id="site-footer"></div>
+  <script src="assets/js/layout.js"></script>
   <script src="assets/js/ui.js"></script>
 </body>
 </html>

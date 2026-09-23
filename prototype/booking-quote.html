@@ -4,65 +4,225 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ODauDay Stay — Báo giá đặt phòng (UC-03 / TC-04)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 <body>
-  <div class="proto-flag">PROTOTYPE — dữ liệu tĩnh, không có backend/CSDL. Dùng để minh hoạ giao diện theo Use Case.</div>
-
-  <header class="site-header">
-    <div class="bar">
-      <a class="brand" href="index.html">ODauDay Stay <span>· cho thuê homestay</span></a>
-      <nav class="nav" aria-label="Điều hướng khách thuê">
-        <a href="index.html">Trang chủ</a>
-        <a href="search-results.html">Tìm kiếm</a>
-        <a href="my-bookings.html">Đơn của tôi</a>
-        <a href="login.html">Đăng nhập</a>
-      </nav>
-      <div class="role-switch"><span>Vai trò:</span>
-        <a href="index.html" class="active">Khách</a>
-        <a href="host-properties.html">Chủ nhà</a>
-        <a href="admin-users.html">Quản trị</a>
-      </div>
-    </div>
-  </header>
+  <div id="site-header"></div>
 
   <main>
-    <p class="breadcrumb"><a href="property-detail.html">ODauDay Stay Hồ Tây</a> › Đặt phòng</p>
-    <span class="uc-tag">UC-03 · Đặt phòng</span>
-    <h1 class="page-title">Xác nhận thông tin đặt phòng</h1>
-    <div class="steps">
-      <span class="step current">1. Báo giá</span><span class="sep">›</span>
-      <span class="step">2. Xác nhận</span><span class="sep">›</span>
-      <span class="step">3. Hoàn tất</span>
+    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.75rem;margin-bottom:0.75rem;">
+      <p class="breadcrumb mb-0">
+        <a href="index.html"><i class="bi bi-house-door"></i> Trang chủ</a>
+        <i class="bi bi-chevron-right" style="font-size:0.7rem;color:var(--subtle);"></i>
+        <a href="property-detail.html">ODauDay Stay Hồ Tây</a>
+        <i class="bi bi-chevron-right" style="font-size:0.7rem;color:var(--subtle);"></i>
+        <span>Báo giá & Xác nhận lưu trú</span>
+      </p>
+      <span class="uc-tag"><i class="bi bi-diagram-3"></i> UC-03 · Đặt phòng</span>
+    </div>
+
+    <h1 class="page-title">Xác nhận thông tin & Báo giá lưu trú</h1>
+    
+    <!-- Steps Progression -->
+    <div class="steps" style="margin-bottom:1.75rem;">
+      <span class="step current"><i class="bi bi-1-circle-fill"></i> 1. Báo giá chi tiết</span>
+      <span class="sep"><i class="bi bi-chevron-right"></i></span>
+      <span class="step"><i class="bi bi-2-circle"></i> 2. Xác nhận thông tin</span>
+      <span class="sep"><i class="bi bi-chevron-right"></i></span>
+      <span class="step"><i class="bi bi-3-circle"></i> 3. Hoàn tất giữ chỗ</span>
     </div>
 
     <div class="layout-side">
-      <section class="panel">
-        <h2>Thông tin lưu trú</h2>
-        <div class="row">
-          <div class="field"><label for="in">Ngày đến</label><input id="in" type="date" value="2027-01-10" /></div>
-          <div class="field"><label for="out">Ngày đi</label><input id="out" type="date" value="2027-01-12" /></div>
-        </div>
-        <div class="row">
-          <div class="field"><label for="ad">Người lớn</label><input id="ad" type="number" min="1" value="2" /></div>
-          <div class="field"><label for="ch">Trẻ em</label><input id="ch" type="number" min="0" value="0" /></div>
-        </div>
-        <p class="muted">Phòng Garden · sức chứa tối đa 2 khách.</p>
-      </section>
+      <!-- Left Column: Booking Details & Contact Info -->
+      <div>
+        <!-- Dates & Capacity Panel -->
+        <section class="panel" style="margin-bottom:1.5rem;">
+          <h2 style="display:flex;align-items:center;gap:0.5rem;font-size:1.25rem;margin-top:0;">
+            <i class="bi bi-calendar-range text-brand"></i> Thời gian & Số lượng khách
+          </h2>
+          
+          <div class="row">
+            <div class="field">
+              <label for="in"><i class="bi bi-calendar-check"></i> Ngày nhận phòng (Check-in 14:00)</label>
+              <input id="in" type="date" value="2027-01-10" required />
+            </div>
+            <div class="field">
+              <label for="out"><i class="bi bi-calendar-x"></i> Ngày trả phòng (Check-out 12:00)</label>
+              <input id="out" type="date" value="2027-01-12" required />
+            </div>
+          </div>
 
-      <aside class="panel">
-        <h3>Chi tiết giá</h3>
-        <div class="summary-line"><span>650.000đ × 2 đêm</span><span>1.300.000đ</span></div>
-        <div class="summary-line"><span>Phí dịch vụ</span><span>0đ</span></div>
-        <div class="summary-total"><span>Tổng cộng</span><span>1.300.000đ</span></div>
-        <p class="muted">Giá được cố định tại thời điểm đặt (price snapshot).</p>
-        <a class="btn btn-primary btn-block" href="booking-success.html">Xác nhận đặt phòng</a>
-        <a class="btn btn-outline btn-block" href="booking-errors.html?state=conflict" style="margin-top:0.5rem;">Xem trạng thái lỗi</a>
+          <div class="row">
+            <div class="field">
+              <label for="ad"><i class="bi bi-person-fill"></i> Người lớn (Từ 12 tuổi trở lên)</label>
+              <input id="ad" type="number" min="1" max="2" value="2" required />
+            </div>
+            <div class="field">
+              <label for="ch"><i class="bi bi-emoji-smile"></i> Trẻ em (Dưới 12 tuổi)</label>
+              <input id="ch" type="number" min="0" max="1" value="0" />
+            </div>
+          </div>
+          
+          <div style="background:#f0fdfa;border:1px solid #ccfbf1;padding:0.9rem 1.1rem;border-radius:10px;margin-top:0.5rem;display:flex;align-items:center;gap:0.6rem;">
+            <i class="bi bi-shield-check text-brand" style="font-size:1.2rem;"></i>
+            <p class="muted" style="margin:0;font-size:0.88rem;color:#0f766e;">
+              <strong>Phòng Garden:</strong> Sức chứa tối đa 2 người lớn (hoặc 2 người lớn kèm 1 trẻ nhỏ). Quy tắc kiểm tra BR-02 bảo đảm an toàn và sự tiện nghi của khách.
+            </p>
+          </div>
+        </section>
+
+        <!-- Guest Contact Form -->
+        <section class="panel" style="margin-bottom:1.5rem;">
+          <h2 style="display:flex;align-items:center;gap:0.5rem;font-size:1.25rem;margin-top:0;">
+            <i class="bi bi-person-lines-fill text-brand"></i> Thông tin người đại diện đặt phòng
+          </h2>
+          <p class="page-sub" style="margin-bottom:1.25rem;">
+            Thông tin này dùng để chủ nhà liên hệ bàn giao chìa khóa và hệ thống gửi hóa đơn xác nhận.
+          </p>
+
+          <div class="row">
+            <div class="field">
+              <label for="guest_name"><i class="bi bi-person"></i> Họ và tên người đặt *</label>
+              <input id="guest_name" value="Khách thuê Demo" required />
+            </div>
+            <div class="field">
+              <label for="guest_phone"><i class="bi bi-telephone"></i> Số điện thoại liên hệ *</label>
+              <input id="guest_phone" value="0900000003" required />
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="field">
+              <label for="guest_email"><i class="bi bi-envelope"></i> Email nhận mã đơn *</label>
+              <input id="guest_email" type="email" value="guest.demo@odaudaystay.vn" required />
+            </div>
+            <div class="field">
+              <label for="guest_arrival"><i class="bi bi-clock"></i> Thời gian dự kiến đến nhận phòng</label>
+              <select id="guest_arrival">
+                <option>14:00 - 16:00 (Tiêu chuẩn)</option>
+                <option>16:00 - 18:00</option>
+                <option>18:00 - 21:00 (Nhận phòng muộn)</option>
+                <option>Sau 21:00 (Chủ nhà gửi mã khoá tự động)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="special_requests"><i class="bi bi-chat-left-dots"></i> Yêu cầu đặc biệt cho chủ nhà (Tùy chọn)</label>
+            <textarea id="special_requests" placeholder="Ví dụ: Cần mượn thêm bàn ủi, check-in sớm 30 phút nếu phòng đã dọn xong...">Cần chuẩn bị thêm 02 khăn tắm và hỗ trợ nhận phòng tự động bằng Smartlock.</textarea>
+          </div>
+        </section>
+
+        <!-- Payment Method Selection -->
+        <section class="panel">
+          <h2 style="display:flex;align-items:center;gap:0.5rem;font-size:1.25rem;margin-top:0;">
+            <i class="bi bi-credit-card text-brand"></i> Phương thức thanh toán
+          </h2>
+          <div style="display:flex;flex-direction:column;gap:0.75rem;margin-top:1rem;">
+            <label style="border:1.5px solid var(--brand);background:var(--brand-soft);border-radius:10px;padding:0.9rem 1.1rem;display:flex;align-items:center;justify-content:space-between;cursor:pointer;">
+              <div style="display:flex;align-items:center;gap:0.75rem;">
+                <input type="radio" name="pay_method" checked style="accent-color:var(--brand);" />
+                <div>
+                  <strong style="color:var(--brand-dark);display:block;">Thanh toán khi nhận phòng (COD / Trực tiếp)</strong>
+                  <span class="muted" style="font-size:0.82rem;">Thanh toán tiền mặt hoặc chuyển khoản QR cho chủ nhà lúc nhận phòng.</span>
+                </div>
+              </div>
+              <span class="badge badge-active">Phổ biến</span>
+            </label>
+
+            <label style="border:1px solid var(--line);background:#fff;border-radius:10px;padding:0.9rem 1.1rem;display:flex;align-items:center;justify-content:space-between;cursor:pointer;">
+              <div style="display:flex;align-items:center;gap:0.75rem;">
+                <input type="radio" name="pay_method" style="accent-color:var(--brand);" />
+                <div>
+                  <strong style="color:var(--ink);display:block;">Chuyển khoản bảo đảm qua VietQR 24/7</strong>
+                  <span class="muted" style="font-size:0.82rem;">Giữ tiền an toàn qua hệ thống Escrow đến khi hoàn tất nhận phòng.</span>
+                </div>
+              </div>
+              <span class="badge" style="background:#f1f5f9;color:var(--muted);"><i class="bi bi-qr-code"></i> Quét mã</span>
+            </label>
+          </div>
+        </section>
+      </div>
+
+      <!-- Right Column: Sticky Quote Summary Card -->
+      <aside class="panel" style="position:sticky;top:90px;height:fit-content;box-shadow:var(--shadow);">
+        <!-- Property Mini Header -->
+        <div style="display:flex;gap:0.75rem;align-items:center;margin-bottom:1rem;padding-bottom:1rem;border-bottom:1px solid var(--line);">
+          <div style="width:72px;height:72px;border-radius:10px;background-image:url('https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=200&q=80');background-size:cover;background-position:center;flex-shrink:0;"></div>
+          <div>
+            <h4 style="margin:0 0 0.2rem;font-size:1rem;color:var(--ink);">ODauDay Stay Hồ Tây</h4>
+            <span class="badge badge-active" style="font-size:0.72rem;padding:0.15rem 0.5rem;">Phòng Garden · Queen</span>
+            <p class="muted" style="margin:0.25rem 0 0;font-size:0.78rem;">
+              <i class="bi bi-geo-alt"></i> Q. Tây Hồ, Hà Nội
+            </p>
+          </div>
+        </div>
+
+        <h3 style="border-bottom:1px solid var(--line-light);padding-bottom:0.6rem;margin-bottom:1rem;font-size:1.1rem;display:flex;align-items:center;gap:0.4rem;">
+          <i class="bi bi-receipt text-brand"></i> Bảng kê chi phí lưu trú
+        </h3>
+
+        <div class="summary-line">
+          <span>Đơn giá phòng (650.000đ × 2 đêm)</span>
+          <strong>1.300.000đ</strong>
+        </div>
+        <div class="summary-line">
+          <span>Phí vệ sinh & dọn dẹp</span>
+          <span class="badge badge-active" style="padding:0.1rem 0.5rem;">Miễn phí</span>
+        </div>
+        <div class="summary-line">
+          <span>Phí nền tảng ODauDay Stay</span>
+          <span class="badge badge-active" style="padding:0.1rem 0.5rem;">0đ (Khuyến mại)</span>
+        </div>
+        <div class="summary-line">
+          <span>Thuế VAT & Phí dịch vụ</span>
+          <span>Đã bao gồm</span>
+        </div>
+
+        <div class="summary-total" style="margin-top:1rem;padding-top:1rem;border-top:2px dashed var(--line);">
+          <span>Tổng tiền thanh toán</span>
+          <span style="color:var(--brand);font-size:1.45rem;font-weight:800;">1.300.000đ</span>
+        </div>
+        
+        <div style="background:#f8fafc;padding:0.85rem;border-radius:8px;border:1px solid var(--line);margin:1rem 0 1.25rem;">
+          <p class="muted" style="font-size:0.8rem;line-height:1.5;margin:0;">
+            💡 <strong>Price Snapshot (BR-05):</strong> Tổng tiền và đơn giá được cố định ngay tại thời điểm tạo đơn, bất biến ngay cả khi chủ nhà điều chỉnh giá sau này.
+          </p>
+        </div>
+
+        <!-- Cancellation Policy Summary -->
+        <div style="font-size:0.82rem;color:var(--muted);margin-bottom:1.25rem;line-height:1.5;">
+          <i class="bi bi-info-circle text-brand"></i> <strong>Chính sách hủy (BR-10):</strong> Hủy miễn phí trong trạng thái <code>PENDING</code>. Không được hủy khi đã làm thủ tục nhận phòng <code>CHECKED_IN</code>.
+        </div>
+
+        <!-- Confirm Action Button (TC-04) -->
+        <a class="btn btn-primary btn-block" href="booking-success.html" style="padding:0.9rem;font-size:1rem;font-weight:700;">
+          <i class="bi bi-check2-circle"></i> Xác nhận tạo đơn đặt phòng (TC-04)
+        </a>
+
+        <!-- Test Links for Exceptions -->
+        <div style="margin-top:1rem;padding-top:0.75rem;border-top:1px solid var(--line-light);text-align:center;">
+          <span class="muted" style="font-size:0.78rem;display:block;margin-bottom:0.4rem;">Kiểm thử luồng ngoại lệ bài toán:</span>
+          <div style="display:flex;gap:0.4rem;justify-content:center;">
+            <a class="btn btn-outline btn-sm" href="booking-errors.html?state=conflict" style="font-size:0.75rem;">
+              Trùng lịch (TC-05)
+            </a>
+            <a class="btn btn-outline btn-sm" href="booking-errors.html?state=capacity" style="font-size:0.75rem;">
+              Vượt sức chứa (TC-06)
+            </a>
+          </div>
+        </div>
       </aside>
     </div>
   </main>
 
-  <footer class="site-footer">ODauDay Stay · Bài tập lớn OOAD · Prototype giao diện, dữ liệu tĩnh trong trang.</footer>
+  <div id="site-footer"></div>
+
+  <script src="assets/js/layout.js"></script>
   <script src="assets/js/ui.js"></script>
 </body>
 </html>
