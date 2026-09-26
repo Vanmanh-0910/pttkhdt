@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ODauDay Stay — Hệ thống đặt phòng Homestay & Nghỉ dưỡng cao cấp (UC-02)</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
   <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
@@ -35,65 +36,75 @@
       <div class="category-pill"><i class="bi bi-percent"></i> Ưu đãi cuối tuần</div>
     </div>
 
-    <!-- Search Hero Panel (Wide Layout) -->
-    <section class="panel" aria-label="Bộ lọc tìm kiếm">
-      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem;border-bottom:1px solid var(--line);padding-bottom:1rem;">
+    <!-- Search Hero Panel (Airbnb & Booking.com Industry Standard) -->
+    <section class="ota-search-hero" aria-label="Bộ lọc tìm kiếm">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1.25rem;">
         <div>
-          <h2 style="margin:0;font-size:1.25rem;display:flex;align-items:center;gap:0.6rem;">
-            <i class="bi bi-search-heart text-success"></i> Tìm phòng trống & Báo giá trực tuyến
+          <h2 style="margin:0;font-size:1.35rem;font-weight:800;display:flex;align-items:center;gap:0.5rem;color:var(--ink);">
+            <i class="bi bi-search-heart text-brand"></i> Tìm kiếm phòng trống & Báo giá tức thì
           </h2>
-          <span class="muted" style="font-size:0.88rem;">Khớp tự động với khoảng ngày và quy tắc kiểm tra xung đột (BR-03 / BR-04)</span>
+          <span class="muted" style="font-size:0.88rem;">Khớp tự động lịch trống và kiểm tra xung đột thời gian thực (BR-03 / BR-04)</span>
         </div>
-        <span class="badge badge-active"><i class="bi bi-check-circle-fill"></i> Trực tuyến 24/7</span>
+        <div style="display:flex;align-items:center;gap:0.5rem;">
+          <span class="badge badge-active"><i class="bi bi-broadcast"></i> Trực tuyến 24/7</span>
+          <span class="badge badge-completed"><i class="bi bi-shield-check"></i> Xác thực tức thì</span>
+        </div>
       </div>
 
       <form action="search-results.html" method="get">
-        <div class="row-3">
-          <div class="field">
-            <label for="kw"><i class="bi bi-geo-alt"></i> Điểm đến / Địa chỉ</label>
-            <input id="kw" name="kw" type="text" placeholder="Ví dụ: Hồ Tây, Ba Vì, Hà Nội..." value="Hồ Tây" required />
+        <div class="ota-search-bar">
+          <div class="ota-search-item">
+            <label for="kw"><i class="bi bi-geo-alt-fill text-danger"></i> ĐỊA ĐIỂM / KHU VỰC</label>
+            <input id="kw" name="kw" type="text" placeholder="Bạn muốn đến đâu? (VD: Hồ Tây, Ba Vì...)" value="Hồ Tây" required />
           </div>
-          <div class="field">
-            <label for="type"><i class="bi bi-house"></i> Loại hình cơ sở (PropertyType)</label>
-            <select id="type" name="type">
-              <option>Tất cả loại hình</option>
-              <option selected>Homestay</option>
-              <option>Căn hộ dịch vụ</option>
-            </select>
-          </div>
-          <div class="field">
-            <label for="guests"><i class="bi bi-people"></i> Số lượng khách (Adults & Children)</label>
-            <input id="guests" name="guests" type="number" min="1" value="2" required />
-          </div>
-        </div>
 
-        <div class="row-3">
-          <div class="field">
-            <label for="in"><i class="bi bi-calendar-check"></i> Ngày nhận phòng (checkInDate)</label>
+          <div class="ota-search-item">
+            <label for="in"><i class="bi bi-calendar-check text-brand"></i> NHẬN PHÒNG</label>
             <input id="in" name="in" type="date" value="2027-01-10" required />
           </div>
-          <div class="field">
-            <label for="out"><i class="bi bi-calendar-x"></i> Ngày trả phòng (checkOutDate)</label>
+
+          <div class="ota-search-item">
+            <label for="out"><i class="bi bi-calendar-x text-brand"></i> TRẢ PHÒNG</label>
             <input id="out" name="out" type="date" value="2027-01-12" required />
           </div>
-          <div class="field">
-            <label for="price"><i class="bi bi-cash-stack"></i> Ngân sách tối đa / đêm</label>
-            <select id="price" name="price">
-              <option>Không giới hạn</option>
-              <option selected>Dưới 1.500.000đ / đêm</option>
-              <option>Dưới 800.000đ / đêm</option>
-              <option>Dưới 500.000đ / đêm</option>
+
+          <div class="ota-search-item">
+            <label for="guests"><i class="bi bi-people-fill text-brand"></i> KHÁCH & LOẠI HÌNH</label>
+            <select id="guests" name="guests">
+              <option value="1">1 khách · Homestay</option>
+              <option value="2" selected>2 khách · Homestay</option>
+              <option value="3">3 khách · Căn hộ</option>
+              <option value="4">4 khách · Villa nghỉ dưỡng</option>
             </select>
+          </div>
+
+          <div>
+            <button type="submit" class="ota-search-btn">
+              <i class="bi bi-search"></i> <span>Tìm kiếm</span>
+            </button>
           </div>
         </div>
 
-        <div class="btn-group" style="margin-top:0.75rem;">
-          <button type="submit" class="btn btn-primary" style="padding:0.85rem 2.5rem;font-size:1rem;">
-            <i class="bi bi-search"></i> Tìm kiếm phòng ngay
-          </button>
-          <a class="btn btn-outline" href="search-states.html?state=invalid-date">
-            <i class="bi bi-exclamation-octagon"></i> Kiểm thử lỗi ngày đi ≤ ngày đến (TC-03)
-          </a>
+        <!-- Secondary Filters & Test Shortcuts -->
+        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;margin-top:1.15rem;padding-top:1rem;border-top:1px solid #f1f5f9;">
+          <div style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap;font-size:0.86rem;color:var(--ink-secondary);">
+            <span><i class="bi bi-funnel"></i> <strong>Lọc nhanh:</strong></span>
+            <label style="display:inline-flex;align-items:center;gap:0.35rem;margin:0;cursor:pointer;">
+              <input type="checkbox" checked /> Có bếp riêng
+            </label>
+            <label style="display:inline-flex;align-items:center;gap:0.35rem;margin:0;cursor:pointer;">
+              <input type="checkbox" checked /> View trọn hồ
+            </label>
+            <label style="display:inline-flex;align-items:center;gap:0.35rem;margin:0;cursor:pointer;">
+              <input type="checkbox" /> Tự nhận phòng (Smartlock)
+            </label>
+          </div>
+
+          <div class="btn-group">
+            <a class="btn btn-outline btn-sm" href="search-states.html?state=invalid-date" style="font-size:0.8rem;border-radius:var(--radius-full);">
+              <i class="bi bi-exclamation-octagon text-danger"></i> Thử nghiệm lỗi ngày đi ≤ ngày đến (TC-03)
+            </a>
+          </div>
         </div>
       </form>
     </section>
@@ -113,26 +124,26 @@
       </a>
     </div>
 
-    <!-- 4 Properties Grid (Wider Display) -->
-    <div class="grid grid-4">
+    <!-- 14 Properties Grid (Wider Display) -->
+    <div class="grid grid-4" id="property-card-list">
       <!-- Property 1 -->
       <article class="card">
-        <div class="thumb" style="background-image:linear-gradient(to top, rgba(15,23,42,0.85) 0%, rgba(15,23,42,0.1) 60%), url('https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=800&q=80');">
+        <div class="thumb" style="background-image:linear-gradient(to top, rgba(15,23,42,0.85) 0%, rgba(15,23,42,0.1) 60%), url('https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=80');">
           <div style="display:flex;justify-content:space-between;align-items:center;width:100%;">
-            <span>Homestay ven hồ</span>
+            <span>Homestay</span>
             <span class="badge badge-active" style="box-shadow:0 2px 8px rgba(0,0,0,0.3);">Yêu thích nhất</span>
           </div>
         </div>
         <div class="body">
           <h3>ODauDay Stay Hồ Tây</h3>
-          <p class="meta"><i class="bi bi-geo-alt"></i> Quận Tây Hồ, Hà Nội</p>
-          <p class="meta stars">★★★★★ <span class="muted">5.0 (24 lượt đặt)</span></p>
+          <p class="meta"><i class="bi bi-geo-alt"></i> Số 12 ngõ 29 Quảng Bá, Quận Tây Hồ, Hà Nội</p>
+          <p class="meta stars">★★★★★ <span class="muted">5.0 (24 đánh giá)</span></p>
           <div style="display:flex;gap:0.35rem;flex-wrap:wrap;margin:0.4rem 0 0.8rem;">
             <span class="badge" style="background:#f1f5f9;color:#475569;font-size:0.72rem;"><i class="bi bi-wifi"></i> Wifi 500M</span>
             <span class="badge" style="background:#f1f5f9;color:#475569;font-size:0.72rem;"><i class="bi bi-tree"></i> Sân vườn</span>
           </div>
           <p class="price">từ 650.000đ <small>/ đêm</small></p>
-          <a class="btn btn-outline btn-sm btn-block" href="property-detail.html">
+          <a class="btn btn-outline btn-sm btn-block" href="property-detail.html?id=1">
             <i class="bi bi-eye"></i> Xem chi tiết phòng
           </a>
         </div>
@@ -140,22 +151,22 @@
 
       <!-- Property 2 -->
       <article class="card">
-        <div class="thumb" style="background-image:linear-gradient(to top, rgba(15,23,42,0.85) 0%, rgba(15,23,42,0.1) 60%), url('https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=800&q=80');">
+        <div class="thumb" style="background-image:linear-gradient(to top, rgba(15,23,42,0.85) 0%, rgba(15,23,42,0.1) 60%), url('https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1200&q=80');">
           <div style="display:flex;justify-content:space-between;align-items:center;width:100%;">
-            <span>Biệt thự đồi thông</span>
-            <span class="badge" style="background:rgba(255,255,255,0.9);color:#0f172a;">View núi</span>
+            <span>Biệt thự sinh thái</span>
+            <span class="badge badge-active" style="box-shadow:0 2px 8px rgba(0,0,0,0.3);">View núi đồi</span>
           </div>
         </div>
         <div class="body">
           <h3>ODauDay Stay Ba Vì</h3>
-          <p class="meta"><i class="bi bi-geo-alt"></i> Ba Vì, Hà Nội</p>
+          <p class="meta"><i class="bi bi-geo-alt"></i> Thôn Mái, Yên Bài, Ba Vì, Hà Nội</p>
           <p class="meta stars">★★★★☆ <span class="muted">4.6 (18 đánh giá)</span></p>
           <div style="display:flex;gap:0.35rem;flex-wrap:wrap;margin:0.4rem 0 0.8rem;">
             <span class="badge" style="background:#f1f5f9;color:#475569;font-size:0.72rem;"><i class="bi bi-water"></i> Bể bơi</span>
-            <span class="badge" style="background:#f1f5f9;color:#475569;font-size:0.72rem;"><i class="bi bi-fire"></i> BBQ</span>
+            <span class="badge" style="background:#f1f5f9;color:#475569;font-size:0.72rem;"><i class="bi bi-fire"></i> Sân BBQ</span>
           </div>
           <p class="price">từ 720.000đ <small>/ đêm</small></p>
-          <a class="btn btn-outline btn-sm btn-block" href="property-detail.html">
+          <a class="btn btn-outline btn-sm btn-block" href="property-detail.html?id=2">
             <i class="bi bi-eye"></i> Xem chi tiết phòng
           </a>
         </div>
@@ -163,22 +174,22 @@
 
       <!-- Property 3 -->
       <article class="card">
-        <div class="thumb" style="background-image:linear-gradient(to top, rgba(15,23,42,0.85) 0%, rgba(15,23,42,0.1) 60%), url('https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=800&q=80');">
+        <div class="thumb" style="background-image:linear-gradient(to top, rgba(15,23,42,0.85) 0%, rgba(15,23,42,0.1) 60%), url('https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=1200&q=80');">
           <div style="display:flex;justify-content:space-between;align-items:center;width:100%;">
             <span>Căn hộ dịch vụ</span>
-            <span class="badge" style="background:rgba(255,255,255,0.9);color:#0f172a;">Trung tâm</span>
+            <span class="badge badge-active" style="box-shadow:0 2px 8px rgba(0,0,0,0.3);">Trung tâm</span>
           </div>
         </div>
         <div class="body">
           <h3>ODauDay Stay Cầu Giấy</h3>
-          <p class="meta"><i class="bi bi-geo-alt"></i> Cầu Giấy, Hà Nội</p>
+          <p class="meta"><i class="bi bi-geo-alt"></i> Tòa Central Point, 219 Trung Kính, Cầu Giấy, Hà Nội</p>
           <p class="meta stars">★★★★☆ <span class="muted">4.4 (32 đánh giá)</span></p>
           <div style="display:flex;gap:0.35rem;flex-wrap:wrap;margin:0.4rem 0 0.8rem;">
             <span class="badge" style="background:#f1f5f9;color:#475569;font-size:0.72rem;"><i class="bi bi-tv"></i> Smart TV</span>
             <span class="badge" style="background:#f1f5f9;color:#475569;font-size:0.72rem;"><i class="bi bi-key"></i> Smartlock</span>
           </div>
           <p class="price">từ 900.000đ <small>/ đêm</small></p>
-          <a class="btn btn-outline btn-sm btn-block" href="property-detail.html">
+          <a class="btn btn-outline btn-sm btn-block" href="property-detail.html?id=3">
             <i class="bi bi-eye"></i> Xem chi tiết phòng
           </a>
         </div>
@@ -186,22 +197,252 @@
 
       <!-- Property 4 -->
       <article class="card">
-        <div class="thumb" style="background-image:linear-gradient(to top, rgba(15,23,42,0.85) 0%, rgba(15,23,42,0.1) 60%), url('https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&w=800&q=80');">
+        <div class="thumb" style="background-image:linear-gradient(to top, rgba(15,23,42,0.85) 0%, rgba(15,23,42,0.1) 60%), url('https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=1200&q=80');">
           <div style="display:flex;justify-content:space-between;align-items:center;width:100%;">
-            <span>Nhà gỗ thung lũng</span>
-            <span class="badge badge-active">Mới ra mắt</span>
+            <span>Nhà gỗ view thung lũng</span>
+            <span class="badge badge-active" style="box-shadow:0 2px 8px rgba(0,0,0,0.3);">Mới ra mắt</span>
           </div>
         </div>
         <div class="body">
           <h3>ODauDay Stay Sapa Eco</h3>
-          <p class="meta"><i class="bi bi-geo-alt"></i> Sa Pa, Lào Cai</p>
+          <p class="meta"><i class="bi bi-geo-alt"></i> Bản Tả Van, Thị xã Sa Pa, Lào Cai</p>
           <p class="meta stars">★★★★★ <span class="muted">4.9 (45 đánh giá)</span></p>
           <div style="display:flex;gap:0.35rem;flex-wrap:wrap;margin:0.4rem 0 0.8rem;">
-            <span class="badge" style="background:#f1f5f9;color:#475569;font-size:0.72rem;"><i class="bi bi-cloud-sun"></i> View mây</span>
-            <span class="badge" style="background:#f1f5f9;color:#475569;font-size:0.72rem;"><i class="bi bi-cup-hot"></i> Bữa sáng</span>
+            <span class="badge" style="background:#f1f5f9;color:#475569;font-size:0.72rem;"><i class="bi bi-cloud-sun"></i> View săn mây</span>
+            <span class="badge" style="background:#f1f5f9;color:#475569;font-size:0.72rem;"><i class="bi bi-cup-hot"></i> Bữa sáng miễn phí</span>
           </div>
           <p class="price">từ 1.250.000đ <small>/ đêm</small></p>
-          <a class="btn btn-outline btn-sm btn-block" href="property-detail.html">
+          <a class="btn btn-outline btn-sm btn-block" href="property-detail.html?id=4">
+            <i class="bi bi-eye"></i> Xem chi tiết phòng
+          </a>
+        </div>
+      </article>
+
+      <!-- Property 5 -->
+      <article class="card">
+        <div class="thumb" style="background-image:linear-gradient(to top, rgba(15,23,42,0.85) 0%, rgba(15,23,42,0.1) 60%), url('https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1200&q=80');">
+          <div style="display:flex;justify-content:space-between;align-items:center;width:100%;">
+            <span>Nhà gỗ đồi thông</span>
+            <span class="badge badge-active" style="box-shadow:0 2px 8px rgba(0,0,0,0.3);">Săn mây</span>
+          </div>
+        </div>
+        <div class="body">
+          <h3>ODauDay Stay Đà Lạt Mộng Mơ</h3>
+          <p class="meta"><i class="bi bi-geo-alt"></i> Đường Khởi Nghĩa Bắc Sơn, Phường 10, TP. Đà Lạt</p>
+          <p class="meta stars">★★★★★ <span class="muted">4.9 (56 đánh giá)</span></p>
+          <div style="display:flex;gap:0.35rem;flex-wrap:wrap;margin:0.4rem 0 0.8rem;">
+            <span class="badge" style="background:#f1f5f9;color:#475569;font-size:0.72rem;"><i class="bi bi-fire"></i> Sân nướng BBQ</span>
+            <span class="badge" style="background:#f1f5f9;color:#475569;font-size:0.72rem;"><i class="bi bi-check2-circle"></i> Lò sưởi củi</span>
+          </div>
+          <p class="price">từ 580.000đ <small>/ đêm</small></p>
+          <a class="btn btn-outline btn-sm btn-block" href="property-detail.html?id=5">
+            <i class="bi bi-eye"></i> Xem chi tiết phòng
+          </a>
+        </div>
+      </article>
+
+      <!-- Property 6 -->
+      <article class="card">
+        <div class="thumb" style="background-image:linear-gradient(to top, rgba(15,23,42,0.85) 0%, rgba(15,23,42,0.1) 60%), url('https://images.unsplash.com/photo-1578683010236-d716f9a3f461?auto=format&fit=crop&w=1200&q=80');">
+          <div style="display:flex;justify-content:space-between;align-items:center;width:100%;">
+            <span>Căn hộ Indochine</span>
+            <span class="badge badge-active" style="box-shadow:0 2px 8px rgba(0,0,0,0.3);">Trung tâm phố cổ</span>
+          </div>
+        </div>
+        <div class="body">
+          <h3>ODauDay Stay Phố Cổ Heritage</h3>
+          <p class="meta"><i class="bi bi-geo-alt"></i> Số 18 Hàng Vôi, Phường Lý Thái Tổ, Hoàn Kiếm, Hà Nội</p>
+          <p class="meta stars">★★★★★ <span class="muted">4.8 (38 đánh giá)</span></p>
+          <div style="display:flex;gap:0.35rem;flex-wrap:wrap;margin:0.4rem 0 0.8rem;">
+            <span class="badge" style="background:#f1f5f9;color:#475569;font-size:0.72rem;"><i class="bi bi-check2-circle"></i> Đi bộ ra Hồ Gươm</span>
+            <span class="badge" style="background:#f1f5f9;color:#475569;font-size:0.72rem;"><i class="bi bi-check2-circle"></i> Ban công cổ kính</span>
+          </div>
+          <p class="price">từ 850.000đ <small>/ đêm</small></p>
+          <a class="btn btn-outline btn-sm btn-block" href="property-detail.html?id=6">
+            <i class="bi bi-eye"></i> Xem chi tiết phòng
+          </a>
+        </div>
+      </article>
+
+      <!-- Property 7 -->
+      <article class="card">
+        <div class="thumb" style="background-image:linear-gradient(to top, rgba(15,23,42,0.85) 0%, rgba(15,23,42,0.1) 60%), url('https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=1200&q=80');">
+          <div style="display:flex;justify-content:space-between;align-items:center;width:100%;">
+            <span>Biệt thự sinh thái</span>
+            <span class="badge badge-active" style="box-shadow:0 2px 8px rgba(0,0,0,0.3);">Bể bơi vô cực</span>
+          </div>
+        </div>
+        <div class="body">
+          <h3>ODauDay Stay Tam Đảo Mây Ngàn</h3>
+          <p class="meta"><i class="bi bi-geo-alt"></i> Khu 1, Thị trấn Tam Đảo, Vĩnh Phúc</p>
+          <p class="meta stars">★★★★☆ <span class="muted">4.7 (29 đánh giá)</span></p>
+          <div style="display:flex;gap:0.35rem;flex-wrap:wrap;margin:0.4rem 0 0.8rem;">
+            <span class="badge" style="background:#f1f5f9;color:#475569;font-size:0.72rem;"><i class="bi bi-water"></i> Bể bơi nước ấm</span>
+            <span class="badge" style="background:#f1f5f9;color:#475569;font-size:0.72rem;"><i class="bi bi-fire"></i> Sân BBQ hoàng hôn</span>
+          </div>
+          <p class="price">từ 1.100.000đ <small>/ đêm</small></p>
+          <a class="btn btn-outline btn-sm btn-block" href="property-detail.html?id=7">
+            <i class="bi bi-eye"></i> Xem chi tiết phòng
+          </a>
+        </div>
+      </article>
+
+      <!-- Property 8 -->
+      <article class="card">
+        <div class="thumb" style="background-image:linear-gradient(to top, rgba(15,23,42,0.85) 0%, rgba(15,23,42,0.1) 60%), url('https://images.unsplash.com/photo-1587061949409-02df41d5e562?auto=format&fit=crop&w=1200&q=80');">
+          <div style="display:flex;justify-content:space-between;align-items:center;width:100%;">
+            <span>Bungalow ven hồ</span>
+            <span class="badge badge-active" style="box-shadow:0 2px 8px rgba(0,0,0,0.3);">Gần di sản Tràng An</span>
+          </div>
+        </div>
+        <div class="body">
+          <h3>ODauDay Stay Ninh Bình Mountain</h3>
+          <p class="meta"><i class="bi bi-geo-alt"></i> Thôn Tràng An, Xã Trường Yên, Hoa Lư, Ninh Bình</p>
+          <p class="meta stars">★★★★★ <span class="muted">5.0 (42 đánh giá)</span></p>
+          <div style="display:flex;gap:0.35rem;flex-wrap:wrap;margin:0.4rem 0 0.8rem;">
+            <span class="badge" style="background:#f1f5f9;color:#475569;font-size:0.72rem;"><i class="bi bi-check2-circle"></i> Thuyền Kayak miễn phí</span>
+            <span class="badge" style="background:#f1f5f9;color:#475569;font-size:0.72rem;"><i class="bi bi-car-front"></i> Xe đạp dạo hồ</span>
+          </div>
+          <p class="price">từ 680.000đ <small>/ đêm</small></p>
+          <a class="btn btn-outline btn-sm btn-block" href="property-detail.html?id=8">
+            <i class="bi bi-eye"></i> Xem chi tiết phòng
+          </a>
+        </div>
+      </article>
+
+      <!-- Property 9 -->
+      <article class="card">
+        <div class="thumb" style="background-image:linear-gradient(to top, rgba(15,23,42,0.85) 0%, rgba(15,23,42,0.1) 60%), url('https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?auto=format&fit=crop&w=1200&q=80');">
+          <div style="display:flex;justify-content:space-between;align-items:center;width:100%;">
+            <span>Nhà vườn truyền thống</span>
+            <span class="badge badge-active" style="box-shadow:0 2px 8px rgba(0,0,0,0.3);">Ven sông Hoài</span>
+          </div>
+        </div>
+        <div class="body">
+          <h3>ODauDay Stay Hội An Riverside</h3>
+          <p class="meta"><i class="bi bi-geo-alt"></i> Số 54 Nguyễn Tri Phương, Cẩm Nam, Hội An, Quảng Nam</p>
+          <p class="meta stars">★★★★★ <span class="muted">4.9 (63 đánh giá)</span></p>
+          <div style="display:flex;gap:0.35rem;flex-wrap:wrap;margin:0.4rem 0 0.8rem;">
+            <span class="badge" style="background:#f1f5f9;color:#475569;font-size:0.72rem;"><i class="bi bi-water"></i> Hồ bơi sân vườn</span>
+            <span class="badge" style="background:#f1f5f9;color:#475569;font-size:0.72rem;"><i class="bi bi-car-front"></i> Đạp xe phố cổ</span>
+          </div>
+          <p class="price">từ 750.000đ <small>/ đêm</small></p>
+          <a class="btn btn-outline btn-sm btn-block" href="property-detail.html?id=9">
+            <i class="bi bi-eye"></i> Xem chi tiết phòng
+          </a>
+        </div>
+      </article>
+
+      <!-- Property 10 -->
+      <article class="card">
+        <div class="thumb" style="background-image:linear-gradient(to top, rgba(15,23,42,0.85) 0%, rgba(15,23,42,0.1) 60%), url('https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1200&q=80');">
+          <div style="display:flex;justify-content:space-between;align-items:center;width:100%;">
+            <span>Villa sát biển</span>
+            <span class="badge badge-active" style="box-shadow:0 2px 8px rgba(0,0,0,0.3);">Sát biển Bãi Trường</span>
+          </div>
+        </div>
+        <div class="body">
+          <h3>ODauDay Stay Phú Quốc Sunset</h3>
+          <p class="meta"><i class="bi bi-geo-alt"></i> Đường Trần Hưng Đạo, Dương Tơ, TP. Phú Quốc, Kiên Giang</p>
+          <p class="meta stars">★★★★★ <span class="muted">4.8 (51 đánh giá)</span></p>
+          <div style="display:flex;gap:0.35rem;flex-wrap:wrap;margin:0.4rem 0 0.8rem;">
+            <span class="badge" style="background:#f1f5f9;color:#475569;font-size:0.72rem;"><i class="bi bi-tsunami"></i> Bãi biển riêng</span>
+            <span class="badge" style="background:#f1f5f9;color:#475569;font-size:0.72rem;"><i class="bi bi-water"></i> Hồ bơi hướng biển</span>
+          </div>
+          <p class="price">từ 1.450.000đ <small>/ đêm</small></p>
+          <a class="btn btn-outline btn-sm btn-block" href="property-detail.html?id=10">
+            <i class="bi bi-eye"></i> Xem chi tiết phòng
+          </a>
+        </div>
+      </article>
+
+      <!-- Property 11 -->
+      <article class="card">
+        <div class="thumb" style="background-image:linear-gradient(to top, rgba(15,23,42,0.85) 0%, rgba(15,23,42,0.1) 60%), url('https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1200&q=80');">
+          <div style="display:flex;justify-content:space-between;align-items:center;width:100%;">
+            <span>Căn hộ dịch vụ</span>
+            <span class="badge badge-active" style="box-shadow:0 2px 8px rgba(0,0,0,0.3);">View vịnh Hạ Long</span>
+          </div>
+        </div>
+        <div class="body">
+          <h3>ODauDay Stay Hạ Long Bay View</h3>
+          <p class="meta"><i class="bi bi-geo-alt"></i> Tòa Green Bay Premium, Hoàng Quốc Việt, Bãi Cháy, Quảng Ninh</p>
+          <p class="meta stars">★★★★☆ <span class="muted">4.7 (34 đánh giá)</span></p>
+          <div style="display:flex;gap:0.35rem;flex-wrap:wrap;margin:0.4rem 0 0.8rem;">
+            <span class="badge" style="background:#f1f5f9;color:#475569;font-size:0.72rem;"><i class="bi bi-check2-circle"></i> View vịnh 180 độ</span>
+            <span class="badge" style="background:#f1f5f9;color:#475569;font-size:0.72rem;"><i class="bi bi-water"></i> Bể bơi bốn mùa</span>
+          </div>
+          <p class="price">từ 950.000đ <small>/ đêm</small></p>
+          <a class="btn btn-outline btn-sm btn-block" href="property-detail.html?id=11">
+            <i class="bi bi-eye"></i> Xem chi tiết phòng
+          </a>
+        </div>
+      </article>
+
+      <!-- Property 12 -->
+      <article class="card">
+        <div class="thumb" style="background-image:linear-gradient(to top, rgba(15,23,42,0.85) 0%, rgba(15,23,42,0.1) 60%), url('https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=1200&q=80');">
+          <div style="display:flex;justify-content:space-between;align-items:center;width:100%;">
+            <span>Căn hộ view biển</span>
+            <span class="badge badge-active" style="box-shadow:0 2px 8px rgba(0,0,0,0.3);">Gần Bãi Trước</span>
+          </div>
+        </div>
+        <div class="body">
+          <h3>ODauDay Stay Vũng Tàu Ocean</h3>
+          <p class="meta"><i class="bi bi-geo-alt"></i> Số 02 Lê Lợi, Phường 1, TP. Vũng Tàu, Bà Rịa - Vũng Tàu</p>
+          <p class="meta stars">★★★★☆ <span class="muted">4.6 (27 đánh giá)</span></p>
+          <div style="display:flex;gap:0.35rem;flex-wrap:wrap;margin:0.4rem 0 0.8rem;">
+            <span class="badge" style="background:#f1f5f9;color:#475569;font-size:0.72rem;"><i class="bi bi-tsunami"></i> Đi bộ 2 phút ra biển</span>
+            <span class="badge" style="background:#f1f5f9;color:#475569;font-size:0.72rem;"><i class="bi bi-fire"></i> Bếp nướng hải sản</span>
+          </div>
+          <p class="price">từ 820.000đ <small>/ đêm</small></p>
+          <a class="btn btn-outline btn-sm btn-block" href="property-detail.html?id=12">
+            <i class="bi bi-eye"></i> Xem chi tiết phòng
+          </a>
+        </div>
+      </article>
+
+      <!-- Property 13 -->
+      <article class="card">
+        <div class="thumb" style="background-image:linear-gradient(to top, rgba(15,23,42,0.85) 0%, rgba(15,23,42,0.1) 60%), url('https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=1200&q=80');">
+          <div style="display:flex;justify-content:space-between;align-items:center;width:100%;">
+            <span>Homestay nhà vườn</span>
+            <span class="badge badge-active" style="box-shadow:0 2px 8px rgba(0,0,0,0.3);">Văn hóa Cố Đô</span>
+          </div>
+        </div>
+        <div class="body">
+          <h3>ODauDay Stay Huế Cố Đô</h3>
+          <p class="meta"><i class="bi bi-geo-alt"></i> Số 11 thôn Lại Thế, Xã Phú Thượng, Huyện Phú Vang, Thừa Thiên Huế</p>
+          <p class="meta stars">★★★★★ <span class="muted">4.9 (31 đánh giá)</span></p>
+          <div style="display:flex;gap:0.35rem;flex-wrap:wrap;margin:0.4rem 0 0.8rem;">
+            <span class="badge" style="background:#f1f5f9;color:#475569;font-size:0.72rem;"><i class="bi bi-cup-hot"></i> Thưởng trà cung đình</span>
+            <span class="badge" style="background:#f1f5f9;color:#475569;font-size:0.72rem;"><i class="bi bi-tree"></i> Vườn hoa trái xanh mát</span>
+          </div>
+          <p class="price">từ 520.000đ <small>/ đêm</small></p>
+          <a class="btn btn-outline btn-sm btn-block" href="property-detail.html?id=13">
+            <i class="bi bi-eye"></i> Xem chi tiết phòng
+          </a>
+        </div>
+      </article>
+
+      <!-- Property 14 -->
+      <article class="card">
+        <div class="thumb" style="background-image:linear-gradient(to top, rgba(15,23,42,0.85) 0%, rgba(15,23,42,0.1) 60%), url('https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=1200&q=80');">
+          <div style="display:flex;justify-content:space-between;align-items:center;width:100%;">
+            <span>Bungalow biển</span>
+            <span class="badge badge-active" style="box-shadow:0 2px 8px rgba(0,0,0,0.3);">View làng chài Bãi Xép</span>
+          </div>
+        </div>
+        <div class="body">
+          <h3>ODauDay Stay Quy Nhơn Sea</h3>
+          <p class="meta"><i class="bi bi-geo-alt"></i> Bãi Xép, Phường Ghềnh Ráng, TP. Quy Nhơn, Bình Định</p>
+          <p class="meta stars">★★★★★ <span class="muted">4.8 (22 đánh giá)</span></p>
+          <div style="display:flex;gap:0.35rem;flex-wrap:wrap;margin:0.4rem 0 0.8rem;">
+            <span class="badge" style="background:#f1f5f9;color:#475569;font-size:0.72rem;"><i class="bi bi-tsunami"></i> Ngắm bình minh biển</span>
+            <span class="badge" style="background:#f1f5f9;color:#475569;font-size:0.72rem;"><i class="bi bi-check2-circle"></i> Hải sản tươi sống làng chài</span>
+          </div>
+          <p class="price">từ 890.000đ <small>/ đêm</small></p>
+          <a class="btn btn-outline btn-sm btn-block" href="property-detail.html?id=14">
             <i class="bi bi-eye"></i> Xem chi tiết phòng
           </a>
         </div>
@@ -282,7 +523,9 @@
   <!-- Enriched Footer -->
   <div id="site-footer"></div>
 
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/store.js"></script>
   <script src="assets/js/layout.js"></script>
-  <script src="assets/js/ui.js"></script>
+  <script src="assets/js/app.js"></script>
 </body>
 </html>
