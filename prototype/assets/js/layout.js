@@ -165,8 +165,10 @@
         }
         if (typeof window.ODDToast === 'function') {
           window.ODDToast('Đã đăng xuất tài khoản thành công.', 'info');
+        } else if (window.ODDApp && typeof window.ODDApp.toast === 'function') {
+          window.ODDApp.toast('Đã đăng xuất tài khoản thành công.', 'info');
         }
-        setTimeout(function () { location.href = 'index.html'; }, 400);
+        setTimeout(function () { location.href = 'login.html'; }, 300);
       });
     }
   }

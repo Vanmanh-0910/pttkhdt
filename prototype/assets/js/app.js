@@ -12,13 +12,13 @@
     return;
   }
 
+  window.ODDToast = function (msg, type, duration) {
+    if (window.ODDApp && window.ODDApp.toast) window.ODDApp.toast(msg, type, duration);
+  };
+
   var ODDApp = {
     // 1. Toast Notification System
     toast: function (message, type, duration) {
-      if (typeof window.ODDToast === 'function') {
-        window.ODDToast(message, type);
-        return;
-      }
       type = type || 'info'; // success, error, warning, info
       duration = duration || 3500;
 
@@ -74,28 +74,29 @@
       bar.setAttribute('aria-label', 'Thanh công cụ kiểm thử prototype');
 
       var user = store.getCurrentUser();
-      var currentRole = user ? user.role : 'GUEST';
-      var roleName = user ? (user.role === 'ADMIN' ? 'Quản trị' : (user.role === 'HOST' ? 'Chủ nhà' : 'Khách')) : 'Khách vãng lai';
+      var currentRole = user ? user.role : '';
+      var roleName = user ? (user.role === 'ADMIN' ? 'Quản trị' : (user.role === 'HOST' ? 'Chủ nhà' : 'Khách')) : 'Chưa đăng nhập';
 
       var isCollapsed = sessionStorage.getItem('ODD_DEMO_COLLAPSED') === 'true';
       if (isCollapsed) {
         bar.classList.add('collapsed');
       }
 
-      var guestAct = currentRole === 'GUEST' ? ' active' : '';
-      var hostAct = currentRole === 'HOST' ? ' active' : '';
-      var adminAct = currentRole === 'ADMIN' ? ' active' : '';
+      var guestAct = (user && currentRole === 'GUEST') ? ' active' : '';
+      var hostAct = (user && currentRole === 'HOST') ? ' active' : '';
+      var adminAct = (user && currentRole === 'ADMIN') ? ' active' : '';
 
       bar.innerHTML = [
         '<div class="demo-bar-badge" id="demo-toggle-btn" title="Nhấp để thu nhỏ / mở rộng công cụ demo">',
         '  <i class="bi bi-shield-lock-fill text-brand"></i>',
-        '  <span>Demo: <strong>' + (user ? user.username : 'guest.demo') + '</strong> (' + roleName + ')</span>',
+        '  <span>Demo: <strong>' + (user ? user.username : 'Chưa đăng nhập') + '</strong> (' + roleName + ')</span>',
         '  <i class="bi bi-chevron-down demo-chevron"></i>',
         '</div>',
         '<div class="demo-bar-actions">',
         '  <button type="button" class="demo-btn' + guestAct + '" data-switch-role="guest" title="Chuyển sang vai trò Khách thuê"><i class="bi bi-person"></i> Khách</button>',
         '  <button type="button" class="demo-btn' + hostAct + '" data-switch-role="host" title="Chuyển sang vai trò Chủ nhà (Host)"><i class="bi bi-house"></i> Chủ nhà</button>',
         '  <button type="button" class="demo-btn' + adminAct + '" data-switch-role="admin" title="Chuyển sang vai trò Quản trị viên (Admin)"><i class="bi bi-gear"></i> Admin</button>',
+        '  <button type="button" class="demo-btn' + (!user ? ' active' : '') + '" data-demo-logout="true" title="Thoát tài khoản / Màn đăng nhập"><i class="bi bi-box-arrow-right"></i> Thoát</button>',
         '  <button type="button" class="demo-btn demo-btn-reset" data-reset-store="true" title="Khôi phục CSDL mẫu ban đầu"><i class="bi bi-arrow-counterclockwise"></i></button>',
         '  <button type="button" class="demo-btn demo-btn-toggle" id="demo-minimize-btn" title="Thu nhỏ"><i class="bi bi-dash-lg"></i></button>',
         '</div>'
@@ -138,6 +139,17 @@
           }
         });
       });
+
+      // Event demo logout
+      var demoLogoutBtn = bar.querySelector('[data-demo-logout]');
+      if (demoLogoutBtn) {
+        demoLogoutBtn.addEventListener('click', function (e) {
+          e.stopPropagation();
+          store.logout();
+          ODDApp.toast('Đã đăng xuất tài khoản thành công.', 'info');
+          setTimeout(function () { location.href = 'login.html'; }, 300);
+        });
+      }
 
       // Event reset store
       var resetBtn = bar.querySelector('[data-reset-store]');
@@ -538,16 +550,16 @@
         btn.addEventListener('click', function (e) {
           e.preventDefault();
           var target = btn.getAttribute('data-fill-user');
-          if (target === 'guest' && userIn && passIn) {
+          if ((target === 'guest' || target === 'guest.demo') && userIn && passIn) {
             userIn.value = 'guest.demo';
             passIn.value = '123';
-          } else if (target === 'host' && userIn && passIn) {
+          } else if ((target === 'host' || target === 'host.demo') && userIn && passIn) {
             userIn.value = 'host.demo';
             passIn.value = '123';
-          } else if (target === 'admin' && userIn && passIn) {
-            userIn.value = 'admin.demo';
+          } else if ((target === 'admin' || target === 'admin.demo') && userIn && passIn) {
+            userIn.value = 'admin';
             passIn.value = '123';
-          } else if (target === 'locked' && userIn && passIn) {
+          } else if ((target === 'locked' || target === 'minh.pham') && userIn && passIn) {
             userIn.value = 'minh.pham';
             passIn.value = '123';
           }
